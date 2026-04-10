@@ -11,8 +11,8 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="03_Load_FAIT_PLACEMENT"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{0609C2AB-529E-4E1F-9BAA-4C02EE6B9866}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{AF8E2294-205F-43D1-A722-170325247FEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,18 +25,18 @@
       DTS:Namespace="User"
       DTS:ObjectName="DateArretee">
       <DTS:VariableValue
-        DTS:DataType="7">4/10/2026 2:01:36 PM</DTS:VariableValue>
+        DTS:DataType="7">4/10/2026 2:15:52 PM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\LOAD_FAIT_PLACEMENT"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{29D8C45B-21F6-49F0-88E4-49DB6E172D81}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="LOAD_FAIT_PLACEMENT"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -44,7 +44,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Conditional Split"
+              refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
@@ -52,49 +52,49 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input].Columns[V_MONTANT]"
                       cachedDataType="r8"
                       cachedName="V_MONTANT"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input].Columns[V_DATE_SCRP]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_SCRP"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input].Columns[V_DATE_ECHNC]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_ECHNC"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Conditional Split.Outputs[Lignes_Valides]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Lignes_Valides]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lignes_Valides"
-                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]})</property>
+                      name="Expression">![ISNULL](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]}) &amp;&amp; ![ISNULL](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]}) &amp;&amp; ![ISNULL](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -109,11 +109,11 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Default Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -122,23 +122,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -147,7 +147,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Data Conversion"
+              refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Data Conversion"
@@ -155,40 +155,40 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input]"
                   name="Data Conversion Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input].Columns[V_DATE_SCRP]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_SCRP"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input].Columns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input].Columns[V_DATE_ECHNC]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_ECHNC"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output]"
                   exclusionGroup="1"
                   name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_SCRP]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_SCRP]"
                       name="dt_SCRP"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -196,7 +196,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -204,11 +204,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]"
                       name="dt_ECHNC"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -216,7 +216,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]}</property>
+                          name="SourceInputColumnLineageID">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indicates whether the column uses the faster, locale-neutral parsing routines."
@@ -227,22 +227,22 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -251,7 +251,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Derived Column"
+              refId="Package\LOAD_FAIT_PLACEMENT\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -259,40 +259,40 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[dt_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input].Columns[dt_SCRP]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="dt_SCRP"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[dt_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input].Columns[dt_ECHNC]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="dt_ECHNC"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]"
                       name="NB_JOURS"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -300,7 +300,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[DATEDIFF]("dd",(DT_DBDATE)#{Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]},(DT_DBDATE)#{Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]})</property>
+                          name="Expression">[DATEDIFF]("dd",(DT_DBDATE)#{Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]},(DT_DBDATE)#{Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -313,23 +313,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -338,7 +338,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Derived Column 1"
+              refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -346,43 +346,43 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[V_MONTANT]"
                       cachedDataType="r8"
                       cachedName="V_MONTANT"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[V_TAUX]"
                       cachedDataType="r8"
                       cachedName="V_TAUX"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input].Columns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]"
                       name="CHARGE_INTERET"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -390,7 +390,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]}) ? NULL(DT_R8) : #{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]} * #{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]} * (DT_R8)#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]} / 3600</property>
+                          name="Expression">[ISNULL](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]}) ? NULL(DT_R8) : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]} * #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]} * (DT_R8)#{Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]} / 3600</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -403,23 +403,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -428,7 +428,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Derived Column 2"
+              refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -436,38 +436,38 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input].Columns[dt_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input].Columns[dt_ECHNC]"
                       cachedDataType="dbDate"
                       cachedName="dt_ECHNC"
-                      lineageId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input].Columns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]"
                       name="NBJOURSRESIDUELS"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -475,7 +475,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">(DT_I4)[DATEDIFF]("dd",@[User::DateArretee],#{Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]})</property>
+                          name="Expression">(DT_I4)[DATEDIFF]("dd",@[User::DateArretee],#{Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output].Columns[dt_ECHNC]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -485,11 +485,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURS]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURS]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURS]"
                       name="NBJOURS"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -497,7 +497,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]}</property>
+                          name="Expression">#{Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -510,23 +510,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -535,7 +535,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Derived Column 3"
+              refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -543,43 +543,43 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input].Columns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input].Columns[V_DATE_SCRP]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_SCRP"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input].Columns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input].Columns[V_DATE_ECHNC]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_DATE_ECHNC"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]"
                       name="dt_SCRP"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -587,7 +587,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">([SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},7,4) + "-" + [SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},4,2) + "-" + [SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},1,2))</property>
+                          name="Expression">([SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},7,4) + "-" + [SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},4,2) + "-" + [SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]},1,2))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -597,12 +597,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]"
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
                       length="10"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]"
                       name="dt_ECHNC"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -610,7 +610,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">([SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},7,4) + "-" + [SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},4,2) + "-" + [SUBSTRING](#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},1,2))</property>
+                          name="Expression">([SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},7,4) + "-" + [SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},4,2) + "-" + [SUBSTRING](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]},1,2))</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -623,23 +623,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -648,7 +648,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_ACTIVITE"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -704,7 +704,7 @@ where [refTable].[KEY_ACT] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -716,7 +716,7 @@ where [refTable].[KEY_ACT] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_ACTIVITE.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -724,16 +724,16 @@ where [refTable].[KEY_ACT] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input].Columns[V_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input].Columns[V_ACTIVITE]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="V_ACTIVITE"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -751,17 +751,17 @@ where [refTable].[KEY_ACT] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]"
                       name="ID_ACTIVITE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -775,30 +775,30 @@ where [refTable].[KEY_ACT] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -807,7 +807,7 @@ where [refTable].[KEY_ACT] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_DEVISE"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -863,7 +863,7 @@ where [refTable].[COD_DEV] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -875,7 +875,7 @@ where [refTable].[COD_DEV] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_DEVISE.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -883,14 +883,14 @@ where [refTable].[COD_DEV] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input].Columns[V_COD_DEV]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input].Columns[V_COD_DEV]"
                       cachedDataType="i4"
                       cachedName="V_COD_DEV"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -908,18 +908,18 @@ where [refTable].[COD_DEV] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]"
                       name="ID_DEVISE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -933,30 +933,30 @@ where [refTable].[COD_DEV] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -965,7 +965,7 @@ where [refTable].[COD_DEV] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_PRODUIT"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1021,7 +1021,7 @@ where [refTable].[COD_PRODUIT] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1033,7 +1033,7 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_PRODUIT.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1041,14 +1041,14 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input].Columns[V_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input].Columns[V_PRODUIT]"
                       cachedDataType="i4"
                       cachedName="V_PRODUIT"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1066,18 +1066,18 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]"
                       name="ID_PRODUIT"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1091,30 +1091,30 @@ where [refTable].[COD_PRODUIT] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1123,7 +1123,7 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_STRUCTURE"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1179,7 +1179,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1191,7 +1191,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1199,14 +1199,14 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input].Columns[V_COD_STRC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input].Columns[V_COD_STRC]"
                       cachedDataType="i4"
                       cachedName="V_COD_STRC"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1224,18 +1224,18 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
                       name="ID_STRUCTURE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1249,30 +1249,30 @@ where [refTable].[COD_AGENCE] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1281,7 +1281,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1337,7 +1337,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1349,7 +1349,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1357,15 +1357,15 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input].Columns[dt_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input].Columns[dt_ECHNC]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="dt_ECHNC"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_ECHNC]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1383,18 +1383,18 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]"
                       name="ID_TEMPS_ECHNC"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1408,30 +1408,30 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1440,7 +1440,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_TEMPS_SCRP"
+              refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -1496,7 +1496,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1508,7 +1508,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1516,15 +1516,15 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input].Columns[dt_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input].Columns[dt_SCRP]"
                       cachedDataType="wstr"
                       cachedLength="10"
                       cachedName="dt_SCRP"
-                      lineageId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]">
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output].Columns[dt_SCRP]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1542,18 +1542,18 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]"
                       name="ID_TEMPS_SCRP"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -1567,30 +1567,30 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1599,7 +1599,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -1656,7 +1656,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1664,141 +1664,141 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_MONTANT]"
                       cachedDataType="r8"
                       cachedName="V_MONTANT"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_TAUX]"
                       cachedDataType="r8"
                       cachedName="V_TAUX"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NB_JOURS]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NB_JOURS]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CHARGE_INTERET]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CHARGE_INTERET]"
                       cachedDataType="r8"
                       cachedName="CHARGE_INTERET"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CHARGE_INTERET]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CHARGE_INTERET]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Output].Columns[CHARGE_INTERET]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TEMPS_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TEMPS_SCRP]"
                       cachedDataType="i4"
                       cachedName="ID_TEMPS_SCRP"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_SCRP]"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output].Columns[ID_TEMPS_SCRP]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TEMPS_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TEMPS_ECHNC]"
                       cachedDataType="i4"
                       cachedName="ID_TEMPS_ECHNC"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_ECHNC]"
-                      lineageId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output].Columns[ID_TEMPS_ECHNC]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
                       cachedDataType="i4"
                       cachedName="ID_STRUCTURE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_PRODUIT]"
                       cachedDataType="i4"
                       cachedName="ID_PRODUIT"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUIT]"
-                      lineageId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUIT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Match Output].Columns[ID_PRODUIT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_DEVISE]"
                       cachedDataType="i4"
                       cachedName="ID_DEVISE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEVISE]"
-                      lineageId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEVISE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Match Output].Columns[ID_DEVISE]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_ACTIVITE]"
                       cachedDataType="i4"
                       cachedName="ID_ACTIVITE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVITE]"
-                      lineageId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVITE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Match Output].Columns[ID_ACTIVITE]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MATURITE_CONTRAT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MATURITE_CONTRAT]"
                       cachedDataType="i4"
                       cachedName="ID_MATURITE_CONTRAT"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_CONTRAT]"
-                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_CONTRAT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MATURITE_RESIDUELLE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_MATURITE_RESIDUELLE]"
                       cachedDataType="i4"
                       cachedName="ID_MATURITE_RESIDUELLE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_RESIDUELLE]"
-                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_RESIDUELLE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PLACEMENT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PLACEMENT]"
                       dataType="i4"
                       name="ID_PLACEMENT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_SCRP]"
                       dataType="i4"
                       name="ID_TEMPS_SCRP" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TEMPS_ECHNC]"
                       dataType="i4"
                       name="ID_TEMPS_ECHNC" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
                       dataType="i4"
                       name="ID_STRUCTURE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_PRODUIT]"
                       dataType="i4"
                       name="ID_PRODUIT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_DEVISE]"
                       dataType="i4"
                       name="ID_DEVISE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_ACTIVITE]"
                       dataType="i4"
                       name="ID_ACTIVITE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_CONTRAT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_CONTRAT]"
                       dataType="i4"
                       name="ID_MATURITE_CONTRAT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_RESIDUELLE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_RESIDUELLE]"
                       dataType="i4"
                       name="ID_MATURITE_RESIDUELLE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
                       dataType="r8"
                       name="V_MONTANT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
                       dataType="r8"
                       name="V_TAUX" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NB_JOURS]"
                       dataType="i4"
                       name="NB_JOURS" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CHARGE_INTERET]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CHARGE_INTERET]"
                       dataType="r8"
                       name="CHARGE_INTERET" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
                       dataType="dbTimeStamp"
                       name="DateChargementDW" />
                   </externalMetadataColumns>
@@ -1806,22 +1806,22 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1830,7 +1830,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Source"
+              refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -1879,7 +1879,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1887,145 +1887,145 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_STRC]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_STRC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_STRC]"
                       name="V_COD_STRC"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_PRODUIT]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_PRODUIT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_PRODUIT]"
                       name="V_PRODUIT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MONTANT]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MONTANT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]"
                       name="V_MONTANT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DEVISE]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DEVISE]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DEVISE]"
                       length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DEVISE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DEVISE]"
                       name="V_DEVISE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_SCRP]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_SCRP]"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_SCRP]"
                       name="V_DATE_SCRP"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_ECHNC]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_ECHNC]"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_DATE_ECHNC]"
                       name="V_DATE_ECHNC"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_TAUX]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_TAUX]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]"
                       name="V_TAUX"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_ACTIVITE]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_ACTIVITE]"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_ACTIVITE]"
                       name="V_ACTIVITE"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_DEV]"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_DEV]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]"
                       name="V_COD_DEV"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_STRC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_STRC]"
                       dataType="i4"
                       name="V_COD_STRC" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_PRODUIT]"
                       dataType="i4"
                       name="V_PRODUIT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MONTANT]"
                       dataType="r8"
                       name="V_MONTANT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DEVISE]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="V_DEVISE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_ECHNC]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="V_DATE_ECHNC" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_DATE_SCRP]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="V_DATE_SCRP" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_DEV]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_COD_DEV]"
                       dataType="i4"
                       name="V_COD_DEV" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_TAUX]"
                       dataType="r8"
                       name="V_TAUX" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MARGE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_MARGE]"
                       dataType="r8"
                       name="V_MARGE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[V_ACTIVITE]"
                       codePage="1252"
                       dataType="str"
                       length="20"
@@ -2033,74 +2033,74 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_STRC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_STRC]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_STRC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_STRC]"
                       name="V_COD_STRC" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_PRODUIT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_PRODUIT]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_PRODUIT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_PRODUIT]"
                       name="V_PRODUIT" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_MONTANT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_MONTANT]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_MONTANT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_MONTANT]"
                       name="V_MONTANT" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DEVISE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DEVISE]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DEVISE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DEVISE]"
                       name="V_DEVISE" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_SCRP]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_SCRP]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_SCRP]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_SCRP]"
                       name="V_DATE_SCRP" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_ECHNC]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_ECHNC]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_ECHNC]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_DATE_ECHNC]"
                       name="V_DATE_ECHNC" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_TAUX]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_TAUX]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_TAUX]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_TAUX]"
                       name="V_TAUX" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_ACTIVITE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_ACTIVITE]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_ACTIVITE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_ACTIVITE]"
                       name="V_ACTIVITE" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_DEV]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_DEV]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_DEV]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[V_COD_DEV]"
                       name="V_COD_DEV" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -2108,7 +2108,7 @@ where [refTable].[DATE_COMPLETE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Script Component"
+              refId="Package\LOAD_FAIT_PLACEMENT\Script Component"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;14"
               description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
@@ -3073,46 +3073,46 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Script Component.Connections[Connection]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Connections[Connection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   name="Connection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Script Component.Inputs[Input 0]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Inputs[Input 0]"
                   hasSideEffects="true"
                   name="Input 0">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[NB_JOURS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Inputs[Input 0].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Script Component.Inputs[Input 0].Columns[NBJOURSRESIDUELS]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Inputs[Input 0].Columns[NBJOURSRESIDUELS]"
                       cachedDataType="i4"
                       cachedName="NBJOURSRESIDUELS"
-                      lineageId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]" />
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output].Columns[NBJOURSRESIDUELS]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Script Component.Outputs[Output 0]"
+                  refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0]"
                   name="Output 0"
-                  synchronousInputId="Package\Data Flow Task\Script Component.Inputs[Input 0]">
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Script Component.Inputs[Input 0]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_CONTRAT]"
                       name="ID_MATURITE_CONTRAT" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]"
+                      refId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]"
                       name="ID_MATURITE_RESIDUELLE" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -3122,87 +3122,87 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Data Conversion Output]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Inputs[Lookup Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Data Conversion.Outputs[Data Conversion Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Outputs[Data Conversion Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output1]"
-              endId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output1]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Inputs[Lookup Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output2]"
-              endId="Package\Data Flow Task\Script Component.Inputs[Input 0]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output2]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Script Component.Inputs[Input 0]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column 2.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output3]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output3]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Inputs[Derived Column Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column 3.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lignes_Valides]"
-              endId="Package\Data Flow Task\Derived Column 3.Inputs[Derived Column Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input]"
               name="Lignes_Valides"
-              startId="Package\Data Flow Task\Conditional Split.Outputs[Lignes_Valides]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Lignes_Valides]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
-              endId="Package\Data Flow Task\Data Conversion.Inputs[Data Conversion Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output1]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Data Conversion.Inputs[Data Conversion Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
-              endId="Package\Data Flow Task\Lookup_PRODUIT.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output2]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output3]"
-              endId="Package\Data Flow Task\Lookup_DEVISE.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output3]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_PRODUIT.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output4]"
-              endId="Package\Data Flow Task\Lookup_ACTIVITE.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output4]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_DEVISE.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output5]"
-              endId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output5]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Derived Column 2.Inputs[Derived Column Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_ACTIVITE.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[OLE DB Source Output]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Output 0]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Output 0]"
+              endId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Output 0"
-              startId="Package\Data Flow Task\Script Component.Outputs[Output 0]" />
+              startId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\TRUNCAT_FAIT_PLACEMENT"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{9B7E0AB6-1BE3-4CA7-BD6B-1837CFCE92E2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="TRUNCAT_FAIT_PLACEMENT"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -3218,10 +3218,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{7EEDF788-0327-405A-A44C-7877661FB3B4}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\TRUNCAT_FAIT_PLACEMENT"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\LOAD_FAIT_PLACEMENT" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3236,39 +3236,27 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
-          TopLeft="404,172" />
+          Size="212,42"
+          Id="Package\LOAD_FAIT_PLACEMENT"
+          TopLeft="485,268" />
         <NodeLayout
-          Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="447,70" />
+          Size="235,42"
+          Id="Package\TRUNCAT_FAIT_PLACEMENT"
+          TopLeft="475,116" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="532,112">
+          TopLeft="591.75,158">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-50.5,60"
+              EndConnector="0,110"
               Start="0,0"
-              End="-50.5,52.5">
+              End="0,102.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-46.5,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46.5,30"
-                    Point2="-50.5,30"
-                    Point3="-50.5,34" />
-                  <mssgle:LineSegment
-                    End="-50.5,52.5" />
+                    End="0,102.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3281,72 +3269,72 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="167,42"
-          Id="Package\Data Flow Task\Script Component"
+          Id="Package\LOAD_FAIT_PLACEMENT\Script Component"
           TopLeft="471,1245" />
         <NodeLayout
           Size="204,42"
-          Id="Package\Data Flow Task\Lookup_TEMPS_ECHNC"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC"
           TopLeft="450,559" />
         <NodeLayout
           Size="161,42"
-          Id="Package\Data Flow Task\Lookup_DEVISE"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE"
           TopLeft="478,937" />
         <NodeLayout
           Size="158,42"
-          Id="Package\Data Flow Task\Derived Column"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column"
           TopLeft="467,311" />
         <NodeLayout
           Size="167,42"
-          Id="Package\Data Flow Task\Derived Column 3"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 3"
           TopLeft="456,213" />
         <NodeLayout
           Size="196,42"
-          Id="Package\Data Flow Task\Lookup_TEMPS_SCRP"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP"
           TopLeft="451,467" />
         <NodeLayout
           Size="171,42"
-          Id="Package\Data Flow Task\Lookup_PRODUIT"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT"
           TopLeft="480,830" />
         <NodeLayout
           Size="167,42"
-          Id="Package\Data Flow Task\Derived Column 2"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 2"
           TopLeft="477,1146" />
         <NodeLayout
           Size="157,42"
-          Id="Package\Data Flow Task\OLE DB Source"
+          Id="Package\LOAD_FAIT_PLACEMENT\OLE DB Source"
           TopLeft="468,23" />
         <NodeLayout
           Size="161,42"
-          Id="Package\Data Flow Task\Data Conversion"
+          Id="Package\LOAD_FAIT_PLACEMENT\Data Conversion"
           TopLeft="477,651" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
+          Id="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination"
           TopLeft="465,1329" />
         <NodeLayout
           Size="189,42"
-          Id="Package\Data Flow Task\Lookup_STRUCTURE"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE"
           TopLeft="470,727" />
         <NodeLayout
           Size="171,42"
-          Id="Package\Data Flow Task\Lookup_ACTIVITE"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE"
           TopLeft="471,1048" />
         <NodeLayout
           Size="167,42"
-          Id="Package\Data Flow Task\Derived Column 1"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 1"
           TopLeft="464,392" />
         <NodeLayout
           Size="159,42"
-          Id="Package\Data Flow Task\Conditional Split"
+          Id="Package\LOAD_FAIT_PLACEMENT\Conditional Split"
           TopLeft="466,118" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Output 0]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Output 0]"
           TopLeft="554,1287">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3368,7 +3356,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[OLE DB Source Output]"
           TopLeft="546,65">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3390,7 +3378,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output5]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output5]"
           TopLeft="558.5,1090">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3414,7 +3402,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output4]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output4]"
           TopLeft="557.5,979">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3438,7 +3426,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output3]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output3]"
           TopLeft="562,872">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3462,7 +3450,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output2]"
           TopLeft="565,769">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3486,7 +3474,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output1]"
           TopLeft="554.75,601">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3510,7 +3498,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lookup Match Output]"
           TopLeft="550.5,509">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3534,7 +3522,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lignes_Valides]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
           TopLeft="542.5,160">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3558,7 +3546,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output3]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output3]"
           TopLeft="542.75,255">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3580,7 +3568,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output2]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output2]"
           TopLeft="557.5,1188">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3602,7 +3590,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output1]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output1]"
           TopLeft="548.25,434">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3624,7 +3612,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output]"
           TopLeft="546.75,353">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3646,7 +3634,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Data Conversion Output]"
           TopLeft="561,693">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3671,7 +3659,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_TEMPS_ECHNC">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3694,7 +3682,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_DEVISE">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3717,7 +3705,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_TEMPS_SCRP">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3740,7 +3728,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_PRODUIT">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_PRODUIT">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3763,7 +3751,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Source">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3776,7 +3764,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3789,7 +3777,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_STRUCTURE">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_STRUCTURE">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3812,7 +3800,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_ACTIVITE">
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>

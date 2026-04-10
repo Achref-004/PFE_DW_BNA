@@ -11,20 +11,20 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="04_Load_FAIT_OBJECTIF"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{6FEB16A9-6EC4-488B-ACA5-8A76B5B15672}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{E482635C-6836-4B57-8DC1-481837D57CEE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\LOAD_FAIT_OBJECTIF"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{3F876D7B-9BE7-4AAB-A897-70AACC6E4307}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="LOAD_FAIT_OBJECTIF"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -32,7 +32,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Derived Column"
+              refId="Package\LOAD_FAIT_OBJECTIF\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
@@ -40,38 +40,38 @@
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_2025"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_DAT_DEV_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DAT_DEV_2025"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
                       name="OBJECTIF_DT"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -79,7 +79,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]}</property>
+                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -89,11 +89,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
                       name="OBJECTIF_DEV"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -101,7 +101,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]}</property>
+                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -111,11 +111,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
                       name="ANNEE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -136,23 +136,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -161,7 +161,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Lookup_STRUCTURE"
+              refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
@@ -217,7 +217,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]};</property>
+                  name="ParameterMap">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -229,7 +229,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -237,15 +237,15 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input].Columns[INDICE_AG]"
                       cachedDataType="i4"
                       cachedName="INDICE_AG"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]">
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -263,17 +263,17 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]"
                       name="ID_STRUCTURE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -287,30 +287,30 @@ where [refTable].[COD_AGENCE] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -319,7 +319,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Merge Join"
+              refId="Package\LOAD_FAIT_OBJECTIF\Merge Join"
               componentClassID="Microsoft.MergeJoin"
               contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
@@ -346,54 +346,54 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input]"
                   hasSideEffects="true"
                   name="Merge Join Left Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input].Columns[INDICE_AG]"
                       cachedDataType="i4"
                       cachedName="INDICE_AG"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input].Columns[OBJECTIF_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_2025"
-                      lineageId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input]"
                   hasSideEffects="true"
                   name="Merge Join Right Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input].Columns[INDICE_AG]"
                       cachedDataType="i4"
                       cachedName="INDICE_AG"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input].Columns[OBJECTIF_DAT_DEV_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DAT_DEV_2025"
-                      lineageId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]" />
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output]"
                   isSorted="true"
                   name="Merge Join Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[INDICE_AG]"
                       name="INDICE_AG"
                       sortKeyPosition="1">
                       <properties>
@@ -401,33 +401,33 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[INDICE_AG]}</property>
+                          name="InputColumnID">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input].Columns[INDICE_AG]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]"
                       name="OBJECTIF_2025">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[OBJECTIF_2025]}</property>
+                          name="InputColumnID">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input].Columns[OBJECTIF_2025]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       name="OBJECTIF_DAT_DEV_2025">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="The input column associated with this output column"
-                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[OBJECTIF_DAT_DEV_2025]}</property>
+                          name="InputColumnID">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input].Columns[OBJECTIF_DAT_DEV_2025]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -436,7 +436,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
@@ -493,7 +493,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -501,61 +501,61 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DT]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DT]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DT"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DEV]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DEV]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DEV"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ANNEE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ANNEE]"
                       cachedDataType="i4"
                       cachedName="ANNEE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
-                      lineageId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
                       cachedDataType="i4"
                       cachedName="ID_STRUCTURE"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
-                      lineageId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_OBJECTIF]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_OBJECTIF]"
                       dataType="i4"
                       name="ID_OBJECTIF" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
                       dataType="i4"
                       name="ID_STRUCTURE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
                       dataType="r8"
                       name="OBJECTIF_DT" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
                       dataType="r8"
                       name="OBJECTIF_DEV" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
                       dataType="i4"
                       name="ANNEE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
                       dataType="dbTimeStamp"
                       name="DateChargementDW" />
                   </externalMetadataColumns>
@@ -563,22 +563,22 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -587,7 +587,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Sort_DEV"
+              refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
@@ -606,14 +606,14 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Sort_DEV.Inputs[Sort Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort_DEV.Inputs[Sort Input].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Inputs[Sort Input].Columns[OBJECTIF_DAT_DEV_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DAT_DEV_2025"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]">
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -626,10 +626,10 @@ where [refTable].[COD_AGENCE] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort_DEV.Inputs[Sort Input].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Inputs[Sort Input].Columns[INDICE_AG]"
                       cachedDataType="i4"
                       cachedName="INDICE_AG"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]">
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -647,27 +647,27 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       name="OBJECTIF_DAT_DEV_2025">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]}</property>
+                          name="SortColumnId">#{Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output].Columns[INDICE_AG]"
                       name="INDICE_AG"
                       sortKeyPosition="1">
                       <properties>
@@ -675,7 +675,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]}</property>
+                          name="SortColumnId">#{Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -684,7 +684,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Sort_DT"
+              refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
@@ -703,14 +703,14 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Sort_DT.Inputs[Sort Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort_DT.Inputs[Sort Input].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Inputs[Sort Input].Columns[INDICE_AG]"
                       cachedDataType="i4"
                       cachedName="INDICE_AG"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]">
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -723,10 +723,10 @@ where [refTable].[COD_AGENCE] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\Sort_DT.Inputs[Sort Input].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Inputs[Sort Input].Columns[OBJECTIF_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_2025"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]">
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -744,14 +744,14 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[INDICE_AG]"
                       name="INDICE_AG"
                       sortKeyPosition="1">
                       <properties>
@@ -759,20 +759,20 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]}</property>
+                          name="SortColumnId">#{Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output].Columns[OBJECTIF_2025]"
                       name="OBJECTIF_2025">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]}</property>
+                          name="SortColumnId">#{Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -781,7 +781,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Source_OBJECTIF_DEV"
+              refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -830,7 +830,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -838,80 +838,80 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_DAT_DEV_2025]"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_DAT_DEV_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       name="OBJECTIF_DAT_DEV_2025"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
                       name="INDICE_AG"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_DR]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_DR]"
                       dataType="i4"
                       name="INDICE_DR" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[DR]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[DR]"
                       dataType="wstr"
                       length="100"
                       name="DR" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
                       dataType="i4"
                       name="INDICE_AG" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[AGENCE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[AGENCE]"
                       dataType="wstr"
                       length="100"
                       name="AGENCE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_DAT_DEV_2025]"
                       dataType="r8"
                       name="OBJECTIF_DAT_DEV_2025" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_DAT_DEV_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_DAT_DEV_2025]"
                       name="OBJECTIF_DAT_DEV_2025" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
                       name="INDICE_AG" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -919,7 +919,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Source_OBJECTIF_DT"
+              refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -968,7 +968,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DT.Connections[OleDbConnection]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -976,76 +976,76 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[INDICE_AG]"
                       name="INDICE_AG"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_2025]"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].Columns[OBJECTIF_2025]"
                       name="OBJECTIF_2025"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[DR]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[DR]"
                       dataType="wstr"
                       length="100"
                       name="DR" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[INDICE_AG]"
                       dataType="i4"
                       name="INDICE_AG" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[AGENCE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[AGENCE]"
                       dataType="wstr"
                       length="100"
                       name="AGENCE" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output].ExternalColumns[OBJECTIF_2025]"
                       dataType="r8"
                       name="OBJECTIF_2025" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[INDICE_AG]"
                       name="INDICE_AG" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_2025]"
                       dataType="r8"
-                      lineageId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_2025]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Error Output].Columns[OBJECTIF_2025]"
                       name="OBJECTIF_2025" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -1055,52 +1055,52 @@ where [refTable].[COD_AGENCE] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Derived Column Output]"
-              endId="Package\Data Flow Task\Lookup_STRUCTURE.Inputs[Lookup Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]"
               name="Derived Column Output"
-              startId="Package\Data Flow Task\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
+              endId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
-              startId="Package\Data Flow Task\Lookup_STRUCTURE.Outputs[Lookup Match Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Merge Join Output]"
-              endId="Package\Data Flow Task\Derived Column.Inputs[Derived Column Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]"
               name="Merge Join Output"
-              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Sort_DT.Inputs[Sort Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Source_OBJECTIF_DT.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
-              endId="Package\Data Flow Task\Sort_DEV.Inputs[Sort Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output1]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output]"
-              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\Data Flow Task\Sort_DT.Outputs[Sort Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Sort_DT.Outputs[Sort Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output1]"
-              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              refId="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output1]"
+              endId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\Data Flow Task\Sort_DEV.Outputs[Sort Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\Sort_DEV.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\TRUNCATE_FAIT_OBJECTIF"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{18C2A440-58C9-4D5C-8D35-456686AA577C}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="TRUNCATE_FAIT_OBJECTIF"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -1116,10 +1116,10 @@ where [refTable].[COD_AGENCE] = ?</property>
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
       DTS:DTSID="{83E1F585-002A-44A3-8972-3D2720ACFE16}"
-      DTS:From="Package\Execute SQL Task"
+      DTS:From="Package\TRUNCATE_FAIT_OBJECTIF"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\LOAD_FAIT_OBJECTIF" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1134,39 +1134,27 @@ where [refTable].[COD_AGENCE] = ?</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
-          TopLeft="477,154" />
+          Size="198,42"
+          Id="Package\LOAD_FAIT_OBJECTIF"
+          TopLeft="462,278" />
         <NodeLayout
-          Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="520,53" />
+          Size="228,42"
+          Id="Package\TRUNCATE_FAIT_OBJECTIF"
+          TopLeft="445,69" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="605,95">
+          TopLeft="560,111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-50.5,59"
+              EndConnector="0,167"
               Start="0,0"
-              End="-50.5,51.5">
+              End="0,159.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.5"
-                    Point2="0,29.5"
-                    Point3="-4,29.5" />
-                  <mssgle:LineSegment
-                    End="-46.5,29.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-46.5,29.5"
-                    Point2="-50.5,29.5"
-                    Point3="-50.5,33.5" />
-                  <mssgle:LineSegment
-                    End="-50.5,51.5" />
+                    End="0,159.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1179,28 +1167,28 @@ where [refTable].[COD_AGENCE] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="194,42"
-          Id="Package\Data Flow Task\Source_OBJECTIF_DT"
+          Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT"
           TopLeft="350,32" />
         <NodeLayout
           Size="202,42"
-          Id="Package\Data Flow Task\Source_OBJECTIF_DEV"
+          Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV"
           TopLeft="662,39" />
         <NodeLayout
           Size="120,42"
-          Id="Package\Data Flow Task\Sort_DT"
+          Id="Package\LOAD_FAIT_OBJECTIF\Sort_DT"
           TopLeft="382,142" />
         <NodeLayout
           Size="128,42"
-          Id="Package\Data Flow Task\Sort_DEV"
+          Id="Package\LOAD_FAIT_OBJECTIF\Sort_DEV"
           TopLeft="695,135" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output]"
           TopLeft="444.5,74">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1222,7 +1210,7 @@ where [refTable].[COD_AGENCE] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output1]"
           TopLeft="761,81">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1245,10 +1233,10 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="133,42"
-          Id="Package\Data Flow Task\Merge Join"
+          Id="Package\LOAD_FAIT_OBJECTIF\Merge Join"
           TopLeft="540,224" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output]"
           TopLeft="442,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1282,7 +1270,7 @@ where [refTable].[COD_AGENCE] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output1]"
           TopLeft="759,177">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1317,10 +1305,10 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="158,42"
-          Id="Package\Data Flow Task\Derived Column"
+          Id="Package\LOAD_FAIT_OBJECTIF\Derived Column"
           TopLeft="524,333" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
           TopLeft="604.75,266">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1343,10 +1331,10 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="189,42"
-          Id="Package\Data Flow Task\Lookup_STRUCTURE"
+          Id="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE"
           TopLeft="509,422" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Derived Column Output]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
           TopLeft="603.25,375">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1369,10 +1357,10 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <NodeLayout
           Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
+          Id="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
           TopLeft="511,552.666666666667" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
           TopLeft="601.5,464">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -1399,7 +1387,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Source_OBJECTIF_DT">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1412,7 +1400,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Source_OBJECTIF_DEV">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1425,12 +1413,12 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup_STRUCTURE">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1440,7 +1428,7 @@ where [refTable].[COD_AGENCE] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1448,7 +1436,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
