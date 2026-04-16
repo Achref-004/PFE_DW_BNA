@@ -11,10 +11,43 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{0770768C-F281-43E2-8EA5-88673B012993}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{3771A487-8E19-4A7C-A95D-C1933A98B8A1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[01_Load_DIM_References.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{FEE79187-BA57-4025-A3DD-19F025ECA4AD}"
+      DTS:ObjectName="01_Load_DIM_References.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\bejao\source\repos\PFE_DW_BNA\PFE_DW_BNA\01_Load_DIM_References.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[02_Load_FAIT_PLACEMENT.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{57AC4E4F-F1CE-4BDE-8D08-B0ADB0AA94EE}"
+      DTS:ObjectName="02_Load_FAIT_PLACEMENT.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\bejao\source\repos\PFE_DW_BNA\PFE_DW_BNA\02_Load_FAIT_PLACEMENT.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[03_Load_FAIT_OBJECTIF.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8ECDB4E4-EC67-4345-B7C1-D6B67BA041DF}"
+      DTS:ObjectName="03_Load_FAIT_OBJECTIF.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\bejao\source\repos\PFE_DW_BNA\PFE_DW_BNA\03_Load_FAIT_OBJECTIF.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -47,7 +80,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>03_Load_FAIT_PLACEMENT.dtsx</PackageName>
+          <PackageName>02_Load_FAIT_PLACEMENT.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -64,7 +97,7 @@
       <DTS:ObjectData>
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
-          <PackageName>04_Load_FAIT_OBJECTIF.dtsx</PackageName>
+          <PackageName>03_Load_FAIT_OBJECTIF.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>

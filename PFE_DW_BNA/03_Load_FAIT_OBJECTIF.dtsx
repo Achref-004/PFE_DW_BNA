@@ -11,8 +11,9 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="04_Load_FAIT_OBJECTIF"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{E482635C-6836-4B57-8DC1-481837D57CEE}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{ABA4522B-BB07-444A-8B45-989F2315B749}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -79,13 +80,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]}</property>
+                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]} * 1000000</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">OBJECTIF_2025</property>
+                          name="FriendlyExpression">OBJECTIF_2025 * 1000000</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -101,13 +102,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]}</property>
+                          name="Expression">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]} * 1000000</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">OBJECTIF_DAT_DEV_2025</property>
+                          name="FriendlyExpression">OBJECTIF_DAT_DEV_2025 * 1000000</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1172,21 +1173,37 @@ where [refTable].[COD_AGENCE] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="177,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
+          TopLeft="511,552.666666666667" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\Merge Join"
+          TopLeft="540,224" />
+        <NodeLayout
           Size="194,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT"
           TopLeft="350,32" />
         <NodeLayout
-          Size="202,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV"
-          TopLeft="662,39" />
+          Size="128,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\Sort_DEV"
+          TopLeft="695,135" />
         <NodeLayout
           Size="120,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Sort_DT"
           TopLeft="382,142" />
         <NodeLayout
-          Size="128,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Sort_DEV"
-          TopLeft="695,135" />
+          Size="158,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\Derived Column"
+          TopLeft="524,333" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE"
+          TopLeft="508,439" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV"
+          TopLeft="662,39" />
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output]"
           TopLeft="444.5,74">
@@ -1210,19 +1227,19 @@ where [refTable].[COD_AGENCE] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output1]"
-          TopLeft="761,81">
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
+          TopLeft="604.75,266">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              EndConnector="0,67"
               Start="0,0"
-              End="0,46.5">
+              End="0,59.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,59.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1231,36 +1248,44 @@ where [refTable].[COD_AGENCE] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Merge Join"
-          TopLeft="540,224" />
         <EdgeLayout
-          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output]"
-          TopLeft="442,184">
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
+          TopLeft="601,481">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="143.666666666667,40"
+              EndConnector="0,71.666666666667"
               Start="0,0"
-              End="143.666666666667,32.5">
+              End="0,64.166666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7147102526003" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7147102526003"
-                    Point2="0,23.7147102526003"
-                    Point3="4,23.7147102526003" />
+                    End="0,64.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,26.2786458333335,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
+          TopLeft="602.75,375">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="139.666666666667,23.7147102526003" />
-                  <mssgle:CubicBezierSegment
-                    Point1="139.666666666667,23.7147102526003"
-                    Point2="143.666666666667,23.7147102526003"
-                    Point3="143.666666666667,27.7147102526003" />
-                  <mssgle:LineSegment
-                    End="143.666666666667,32.5" />
+                    End="0,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1303,24 +1328,32 @@ where [refTable].[COD_AGENCE] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Derived Column"
-          TopLeft="524,333" />
         <EdgeLayout
-          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
-          TopLeft="604.75,266">
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output]"
+          TopLeft="442,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,67"
+              EndConnector="143.666666666667,40"
               Start="0,0"
-              End="0,59.5">
+              End="143.666666666667,32.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59.5" />
+                    End="0,19.7147102526003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7147102526003"
+                    Point2="0,23.7147102526003"
+                    Point3="4,23.7147102526003" />
+                  <mssgle:LineSegment
+                    End="139.666666666667,23.7147102526003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="139.666666666667,23.7147102526003"
+                    Point2="143.666666666667,23.7147102526003"
+                    Point3="143.666666666667,27.7147102526003" />
+                  <mssgle:LineSegment
+                    End="143.666666666667,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1329,58 +1362,26 @@ where [refTable].[COD_AGENCE] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="189,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE"
-          TopLeft="509,422" />
         <EdgeLayout
-          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
-          TopLeft="603.25,375">
+          Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output1]"
+          TopLeft="761,81">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,47"
+              EndConnector="0,54"
               Start="0,0"
-              End="0,39.5">
+              End="0,46.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.5" />
+                    End="0,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
-          TopLeft="511,552.666666666667" />
-        <EdgeLayout
-          Id="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
-          TopLeft="601.5,464">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,88.6666666666667"
-              Start="0,0"
-              End="0,81.1666666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.1666666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,34.7786458333334,96.3827734375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

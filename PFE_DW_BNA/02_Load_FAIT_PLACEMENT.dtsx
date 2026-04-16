@@ -11,8 +11,9 @@
   DTS:LocaleID="3072"
   DTS:ObjectName="03_Load_FAIT_PLACEMENT"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{AF8E2294-205F-43D1-A722-170325247FEC}">
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{975296E1-14E5-44E2-BC2F-D06683090F61}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -25,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DateArretee">
       <DTS:VariableValue
-        DTS:DataType="7">4/10/2026 2:15:52 PM</DTS:VariableValue>
+        DTS:DataType="7">4/15/2026 5:03:07 PM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -351,20 +352,20 @@
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[V_MONTANT]"
-                      cachedDataType="r8"
-                      cachedName="V_MONTANT"
-                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[V_TAUX]"
-                      cachedDataType="r8"
-                      cachedName="V_TAUX"
-                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
-                    <inputColumn
                       refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
                       lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[MONTANT_TND]"
+                      cachedDataType="r8"
+                      cachedName="MONTANT_TND"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[MONTANT_TND]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 1.Inputs[Derived Column Input].Columns[V_TAUX1]"
+                      cachedDataType="r8"
+                      cachedName="V_TAUX1"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -390,13 +391,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]}) ? NULL(DT_R8) : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]} * #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]} * (DT_R8)#{Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]} / 3600</property>
+                          name="Expression">[ISNULL](#{Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]}) ? NULL(DT_R8) : #{Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[MONTANT_TND]} * #{Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]} * (DT_R8)#{Package\LOAD_FAIT_PLACEMENT\Derived Column.Outputs[Derived Column Output].Columns[NB_JOURS]} / 36000</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(V_TAUX) ? NULL(DT_R8) : V_MONTANT * V_TAUX * (DT_R8)NB_JOURS / 3600</property>
+                          name="FriendlyExpression">ISNULL(V_TAUX1) ? NULL(DT_R8) : MONTANT_TND * V_TAUX1 * (DT_R8)NB_JOURS / 36000</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -640,6 +641,118 @@
                       refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 4"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input].Columns[V_MONTANT]"
+                      cachedDataType="r8"
+                      cachedName="V_MONTANT"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input].Columns[V_COD_DEV]"
+                      cachedDataType="i4"
+                      cachedName="V_COD_DEV"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input].Columns[V_TAUX]"
+                      cachedDataType="r8"
+                      cachedName="V_TAUX"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[MONTANT_TND]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[MONTANT_TND]"
+                      name="MONTANT_TND"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]} == 978 ? #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]} * 3.3 : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]} == 840 ? #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]} * 3.08 : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">V_COD_DEV == 978 ? V_MONTANT * 3.3 : V_COD_DEV == 840 ? V_MONTANT * 3.08 : V_MONTANT</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]"
+                      name="V_TAUX1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]} == 978 ? 7.7 : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]} == 840 ? 8.8 : #{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">V_COD_DEV == 978 ? 7.7 : V_COD_DEV == 840 ? 8.8 : V_TAUX</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1671,18 +1784,6 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_MONTANT]"
-                      cachedDataType="r8"
-                      cachedName="V_MONTANT"
-                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
-                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_MONTANT]" />
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_TAUX]"
-                      cachedDataType="r8"
-                      cachedName="V_TAUX"
-                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
-                      lineageId="Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_TAUX]" />
-                    <inputColumn
                       refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NB_JOURS]"
                       cachedDataType="i4"
                       cachedName="NB_JOURS"
@@ -1742,6 +1843,18 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                       cachedName="ID_MATURITE_RESIDUELLE"
                       externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_MATURITE_RESIDUELLE]"
                       lineageId="Package\LOAD_FAIT_PLACEMENT\Script Component.Outputs[Output 0].Columns[ID_MATURITE_RESIDUELLE]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MONTANT_TND]"
+                      cachedDataType="r8"
+                      cachedName="MONTANT_TND"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_MONTANT]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[MONTANT_TND]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[V_TAUX1]"
+                      cachedDataType="r8"
+                      cachedName="V_TAUX1"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2447,7 +2560,7 @@ public class ScriptMain : UserComponent
     public override void Input0_ProcessInputRow(Input0Buffer Row)
     {
         // Connexion � ta base de donn�es DW
-        string connStr = "Data Source=localhost\\SQLEXPRESS;Initial Catalog=DW_BNA_Placements;Integrated Security=True;";
+        string connStr = "Data Source=.;Initial Catalog=DW_BNA_Placements;Integrated Security=True;";
 
         using (var conn = new System.Data.SqlClient.SqlConnection(connStr))
         {
@@ -2470,7 +2583,7 @@ public class ScriptMain : UserComponent
                 int nbResiduel = Row.NBJOURSRESIDUELS; // exemple si tu l�as d�j� calcul�
                 cmdResidual.Parameters.AddWithValue("@nb", nbResiduel);
                 var resultResidual = cmdResidual.ExecuteScalar();
-                Row.IDMATURITERESIDUELLE = resultResidual != null ? (int)resultResidual : 1;
+                Row.IDMATURITERESIDUELLE = resultResidual != null ? (int)resultResidual : 14;
             }
         }
     }
@@ -2704,8 +2817,8 @@ namespace SC_4f1710857bef4be69d3b059c61d3185b.Properties {
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
-        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
-        <Host Name="ScriptComponent" GeneratedNamespace="SC_4f1710857bef4be69d3b059c61d3185b" IconIndex="0"></Host>
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptComponent" IconIndex="0" />
         <ProjectClient>
           <HostIdentifier>SSIS_SC170</HostIdentifier>
         </ProjectClient>
@@ -2724,7 +2837,7 @@ namespace SC_4f1710857bef4be69d3b059c61d3185b.Properties {
     <msb:CodeName>SC_4f1710857bef4be69d3b059c61d3185b</msb:CodeName>
     <msb:Language>msBuild</msb:Language>
     <msb:DisplayName>SC_4f1710857bef4be69d3b059c61d3185b</msb:DisplayName>
-    <msb:ProjectId>{D8DD0565-4BA0-452C-A03F-57A4956BEDEE}</msb:ProjectId>
+    <msb:ProjectId>{B5DE7FA1-DA13-4A74-8A70-DD38897D37A8}</msb:ProjectId>
   </msb:PropertyGroup>
   <msb:ItemGroup>
     <msb:Project Include="SC_4f1710857bef4be69d3b059c61d3185b.csproj" />
@@ -2871,28 +2984,28 @@ namespace SC_4f1710857bef4be69d3b059c61d3185b.Properties {
                     <arrayElement
                       dataType="System.String"><![CDATA[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
-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
+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
-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
+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
-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
+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
-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
+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
-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
+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
-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
+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
-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
+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
@@ -2964,32 +3077,32 @@ cwBPYmplY3QARW5kT2ZSb3dzZXQAZ2V0X0RlZmF1bHQAU3lzdGVtLkRhdGEuU3FsQ2xpZW50AFVz
 ZXJDb21wb25lbnQAUGFyZW50Q29tcG9uZW50AFNjcmlwdENvbXBvbmVudABNaWNyb3NvZnQuU3Fs
 U2VydmVyLlR4U2NyaXB0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0AElucHV0MF9Q
 cm9jZXNzSW5wdXQASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBOZXh0Um93AGdldF9Bc3NlbWJseQAA
-AACAuUQAYQB0AGEAIABTAG8AdQByAGMAZQA9AGwAbwBjAGEAbABoAG8AcwB0AFwAUwBRAEwARQBY
-AFAAUgBFAFMAUwA7AEkAbgBpAHQAaQBhAGwAIABDAGEAdABhAGwAbwBnAD0ARABXAF8AQgBOAEEA
-XwBQAGwAYQBjAGUAbQBlAG4AdABzADsASQBuAHQAZQBnAHIAYQB0AGUAZAAgAFMAZQBjAHUAcgBp
-AHQAeQA9AFQAcgB1AGUAOwAAgLtTAEUATABFAEMAVAAgAFQATwBQACAAMQAgAEkARABfAE0AQQBU
-AFUAUgBJAFQARQAgAEYAUgBPAE0AIABEAFcALgBEAEkATQBfAE0AQQBUAFUAUgBJAFQARQAgAFcA
-SABFAFIARQAgAEAAbgBiACAAQgBFAFQAVwBFAEUATgAgAE4AQgBfAEoATwBVAFIAUwBfAE0ASQBO
-ACAAQQBOAEQAIABOAEIAXwBKAE8AVQBSAFMAXwBNAEEAWAAAB0AAbgBiAACAm0kAcwBOAHUAbABs
-ACAAcAByAG8AcABlAHIAdAB5ACAAYwBhAG4AbgBvAHQAIABiAGUAIABzAGUAdAAgAHQAbwAgAEYA
-YQBsAHMAZQAuACAAQQBzAHMAaQBnAG4AIABhACAAdgBhAGwAdQBlACAAdABvACAAdABoAGUAIABj
-AG8AbAB1AG0AbgAgAGkAbgBzAHQAZQBhAGQALgAAD0kAbgBwAHUAdAAgADAAABVDAG8AbgBuAGUA
-YwB0AGkAbwBuAABxUwBDAF8ANABmADEANwAxADAAOAA1ADcAYgBlAGYANABiAGUANgA5AGQAMwBi
-ADAANQA5AGMANgAxAGQAMwAxADgANQBiAC4AUAByAG8AcABlAHIAdABpAGUAcwAuAFIAZQBzAG8A
-dQByAGMAZQBzAAAAAI4cbULwNo9DiPAE2H6RIPEABCABAQgDIAABBSABARERBCABAQ4FIAEBEWUL
-BwYSORI9HBI9CBwGIAIBDhI5BCAAEnkHIAISgIEOHAMgABwJIAMBEkkdCBJNAwYSSQMGHQgEIAEI
-CAQgAQIIBSACAQgcAyAAAgcgAgIOEYCVBSABHQgIBSAAEoCZBSAAEoCdBiABEoChDgQgABJVCAAB
-EoClEYCpBSAAEoCtByACAQ4SgK0It3pcVhk04IkIiYRdzYCAzJEDBhIUAwYSGAMGElEDBhJdAwYS
-YQMGEiAFIAEBEgwDIAAIBCABAQIJIAQBCA4SSRJNBSABARJRBAAAEl0EAAASYQUAAQESYQQAABIg
-AwAAAQMoAAgDKAACBCgAElUECAASXQQIABJhBAgAEiAIAQAIAAAAAAAeAQABAFQCFldyYXBOb25F
-eGNlcHRpb25UaHJvd3MBCAEAAgAAAAAAKAEAI1NDXzRmMTcxMDg1N2JlZjRiZTY5ZDNiMDU5YzYx
-ZDMxODViAAAFAQAAAAAWAQARQ29weXJpZ2h0IEAgIDIwMjYAAEkBABouTkVURnJhbWV3b3JrLFZl
-cnNpb249djQuNwEAVA4URnJhbWV3b3JrRGlzcGxheU5hbWUSLk5FVCBGcmFtZXdvcmsgNC43BAEA
-AAAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNj
-b3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1i
-NzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAA
-AAAAAAAAUEFEUEFEULQAAAC4OAAAAAAAAAAAAADSOAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-xDgAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAAAAAAAAAA
+AACAk0QAYQB0AGEAIABTAG8AdQByAGMAZQA9AC4AOwBJAG4AaQB0AGkAYQBsACAAQwBhAHQAYQBs
+AG8AZwA9AEQAVwBfAEIATgBBAF8AUABsAGEAYwBlAG0AZQBuAHQAcwA7AEkAbgB0AGUAZwByAGEA
+dABlAGQAIABTAGUAYwB1AHIAaQB0AHkAPQBUAHIAdQBlADsAAIC7UwBFAEwARQBDAFQAIABUAE8A
+UAAgADEAIABJAEQAXwBNAEEAVABVAFIASQBUAEUAIABGAFIATwBNACAARABXAC4ARABJAE0AXwBN
+AEEAVABVAFIASQBUAEUAIABXAEgARQBSAEUAIABAAG4AYgAgAEIARQBUAFcARQBFAE4AIABOAEIA
+XwBKAE8AVQBSAFMAXwBNAEkATgAgAEEATgBEACAATgBCAF8ASgBPAFUAUgBTAF8ATQBBAFgAAAdA
+AG4AYgAAgJtJAHMATgB1AGwAbAAgAHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBl
+ACAAcwBlAHQAIAB0AG8AIABGAGEAbABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUA
+ZQAgAHQAbwAgAHQAaABlACAAYwBvAGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AAA9JAG4AcAB1
+AHQAIAAwAAAVQwBvAG4AbgBlAGMAdABpAG8AbgAAcVMAQwBfADQAZgAxADcAMQAwADgANQA3AGIA
+ZQBmADQAYgBlADYAOQBkADMAYgAwADUAOQBjADYAMQBkADMAMQA4ADUAYgAuAFAAcgBvAHAAZQBy
+AHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAhC1ehFqbgEWRlaVEshMklQAEIAEBCAMgAAEF
+IAEBEREEIAEBDgUgAQERZQsHBhI5Ej0cEj0IHAYgAgEOEjkEIAASeQcgAhKAgQ4cAyAAHAkgAwES
+SR0IEk0DBhJJAwYdCAQgAQgIBCABAggFIAIBCBwDIAACByACAg4RgJUFIAEdCAgFIAASgJkFIAAS
+gJ0GIAESgKEOBCAAElUIAAESgKURgKkFIAASgK0HIAIBDhKArQi3elxWGTTgiQiJhF3NgIDMkQMG
+EhQDBhIYAwYSUQMGEl0DBhJhAwYSIAUgAQESDAMgAAgEIAEBAgkgBAEIDhJJEk0FIAEBElEEAAAS
+XQQAABJhBQABARJhBAAAEiADAAABAygACAMoAAIEKAASVQQIABJdBAgAEmEECAASIAgBAAgAAAAA
+AB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU0NfNGYxNzEwODU3
+YmVmNGJlNjlkM2IwNTljNjFkMzE4NWIAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAyNgAASQEA
+Gi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC43AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVU
+IEZyYW1ld29yayA0LjcEAQAAAAAAtAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJl
+c291cmNlUmVhZGVyLCBtc2NvcmxpYiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWws
+IFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1l
+UmVzb3VyY2VTZXQCAAAAAAAAAAAAAABQQURQQURQtAAAAJA4AAAAAAAAAAAAAKo4AAAAIAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAACcOAAAAAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAA
+AAD/JQAgABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3021,7 +3134,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAA5DgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAAvDgAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -3147,8 +3260,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               name="Derived Column Output"
               startId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Outputs[Derived Column Output]" />
             <path
-              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output4]"
               endId="Package\LOAD_FAIT_PLACEMENT\Derived Column 3.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
+              endId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Inputs[Derived Column Input]"
               name="Lignes_Valides"
               startId="Package\LOAD_FAIT_PLACEMENT\Conditional Split.Outputs[Lignes_Valides]" />
             <path
@@ -3288,11 +3406,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <NodeLayout
           Size="158,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Derived Column"
-          TopLeft="467,311" />
+          TopLeft="467,327" />
         <NodeLayout
           Size="167,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 3"
-          TopLeft="456,213" />
+          TopLeft="458,257" />
         <NodeLayout
           Size="196,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP"
@@ -3522,43 +3640,19 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
-          TopLeft="542.5,160">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53"
-              Start="0,0"
-              End="0,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.842578125,16.91845703125,65.68515625,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output3]"
-          TopLeft="542.75,255">
+          TopLeft="543.75,299">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56"
+              EndConnector="0,28"
               Start="0,0"
-              End="0,48.5">
+              End="0,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.5" />
+                    End="0,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3613,18 +3707,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output]"
-          TopLeft="546.75,353">
+          TopLeft="546.75,369">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="0,23"
               Start="0,0"
-              End="0,31.5">
+              End="0,15.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,15.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3647,6 +3741,56 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 4"
+          TopLeft="460,184" />
+        <EdgeLayout
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
+          TopLeft="544.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.842578125,2.41845703125,65.68515625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output4]"
+          TopLeft="542.5,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

@@ -7,6 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=DW_BNA_Placements;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}localhost\SQLEXPRESS.DW_BNA_Placements;Auto Translate=False;" />
+      DTS:ConnectionString="Data Source=.;Initial Catalog=DW_BNA_Placements;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}localhost\SQLEXPRESS.DW_BNA_Placements;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
