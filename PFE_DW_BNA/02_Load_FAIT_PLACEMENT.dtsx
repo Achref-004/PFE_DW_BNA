@@ -12,8 +12,8 @@
   DTS:ObjectName="03_Load_FAIT_PLACEMENT"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{975296E1-14E5-44E2-BC2F-D06683090F61}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{585B9B55-D64A-4B69-A331-FF2F622863DA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -26,7 +26,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="DateArretee">
       <DTS:VariableValue
-        DTS:DataType="7">4/15/2026 5:03:07 PM</DTS:VariableValue>
+        DTS:DataType="7">4/18/2026 4:10:48 AM</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -730,6 +730,29 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">V_COD_DEV == 978 ? 7.7 : V_COD_DEV == 840 ? 8.8 : V_TAUX</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[Type_Devise]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="6"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[Type_Devise]"
+                      name="Type_Devise"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\LOAD_FAIT_PLACEMENT\OLE DB Source.Outputs[OLE DB Source Output].Columns[V_COD_DEV]} == 788 ? "Dinar" : "Devise"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">V_COD_DEV == 788 ? "Dinar" : "Devise"</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1855,6 +1878,13 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                       cachedName="V_TAUX1"
                       externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[V_TAUX]"
                       lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[V_TAUX1]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Type_Devise]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="Type_Devise"
+                      externalMetadataColumnId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TYPE_DEVISE]"
+                      lineageId="Package\LOAD_FAIT_PLACEMENT\Derived Column 4.Outputs[Derived Column Output].Columns[Type_Devise]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1914,6 +1944,11 @@ where [refTable].[DATE_COMPLETE] = ?</property>
                       refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
                       dataType="dbTimeStamp"
                       name="DateChargementDW" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TYPE_DEVISE]"
+                      dataType="wstr"
+                      length="6"
+                      name="TYPE_DEVISE" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3392,26 +3427,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="167,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Script Component"
-          TopLeft="471,1245" />
-        <NodeLayout
-          Size="204,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC"
-          TopLeft="450,559" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE"
-          TopLeft="478,937" />
-        <NodeLayout
-          Size="158,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column"
-          TopLeft="467,327" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 3"
-          TopLeft="458,257" />
-        <NodeLayout
           Size="196,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP"
           TopLeft="451,467" />
@@ -3421,16 +3436,16 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           TopLeft="480,830" />
         <NodeLayout
           Size="167,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 2"
-          TopLeft="477,1146" />
+          Id="Package\LOAD_FAIT_PLACEMENT\Script Component"
+          TopLeft="471,1245" />
         <NodeLayout
-          Size="157,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\OLE DB Source"
-          TopLeft="468,23" />
+          Size="158,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column"
+          TopLeft="467,327" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Data Conversion"
-          TopLeft="477,651" />
+          Size="167,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 3"
+          TopLeft="458,257" />
         <NodeLayout
           Size="177,42"
           Id="Package\LOAD_FAIT_PLACEMENT\OLE DB Destination"
@@ -3443,6 +3458,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="171,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Lookup_ACTIVITE"
           TopLeft="471,1048" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 2"
+          TopLeft="477,1146" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Data Conversion"
+          TopLeft="477,651" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC"
+          TopLeft="450,559" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE"
+          TopLeft="478,937" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\OLE DB Source"
+          TopLeft="468,23" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 4"
+          TopLeft="460,184" />
         <NodeLayout
           Size="167,42"
           Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 1"
@@ -3640,6 +3679,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
+          TopLeft="544.5,160">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.842578125,2.41845703125,65.68515625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output4]"
+          TopLeft="542.5,226">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output3]"
           TopLeft="543.75,299">
           <EdgeLayout.Curve>
@@ -3749,105 +3834,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\LOAD_FAIT_PLACEMENT\Derived Column 4"
-          TopLeft="460,184" />
-        <EdgeLayout
-          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Lignes_Valides]"
-          TopLeft="544.5,160">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24"
-              Start="0,0"
-              End="0,16.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-32.842578125,2.41845703125,65.68515625,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LOAD_FAIT_PLACEMENT.Paths[Derived Column Output4]"
-          TopLeft="542.5,226">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,31"
-              Start="0,0"
-              End="0,23.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[DW].[DIM_TEMPS]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[DW].[DIM_DEVISE]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_SCRP">
     <Properties>
@@ -3891,19 +3880,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_FAIT_PLACEMENT\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3963,6 +3939,65 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_TEMPS_ECHNC">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DW].[DIM_TEMPS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\Lookup_DEVISE">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DW].[DIM_DEVISE]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_FAIT_PLACEMENT\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
