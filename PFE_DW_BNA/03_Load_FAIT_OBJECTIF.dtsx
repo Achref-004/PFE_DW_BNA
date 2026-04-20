@@ -12,8 +12,8 @@
   DTS:ObjectName="04_Load_FAIT_OBJECTIF"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{ABA4522B-BB07-444A-8B45-989F2315B749}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{C944B4CE-7DBA-4F2F-8C4D-FD6593612F5F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -33,25 +33,25 @@
           version="1">
           <components>
             <component
-              refId="Package\LOAD_FAIT_OBJECTIF\Derived Column"
+              refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
+              name="changer les unites des montant et ajout column annee"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input].Columns[OBJECTIF_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_2025"
                       lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_2025]" />
                     <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input].Columns[OBJECTIF_DAT_DEV_2025]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input].Columns[OBJECTIF_DAT_DEV_2025]"
                       cachedDataType="r8"
                       cachedName="OBJECTIF_DAT_DEV_2025"
                       lineageId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output].Columns[OBJECTIF_DAT_DEV_2025]" />
@@ -61,18 +61,18 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DT]"
                       name="OBJECTIF_DT"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -90,11 +90,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
                       dataType="r8"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]"
                       name="OBJECTIF_DEV"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -112,11 +112,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[ANNEE]"
                       dataType="i4"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[ANNEE]"
                       name="ANNEE"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -137,23 +137,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -431,157 +431,6 @@ where [refTable].[COD_AGENCE] = ?</property>
                           name="InputColumnID">#{Package\LOAD_FAIT_OBJECTIF\Merge Join.Inputs[Merge Join Right Input].Columns[OBJECTIF_DAT_DEV_2025]}</property>
                       </properties>
                     </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[DW].[FAIT_OBJECTIF]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DT]"
-                      cachedDataType="r8"
-                      cachedName="OBJECTIF_DT"
-                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DT]" />
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DEV]"
-                      cachedDataType="r8"
-                      cachedName="OBJECTIF_DEV"
-                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]" />
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ANNEE]"
-                      cachedDataType="i4"
-                      cachedName="ANNEE"
-                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output].Columns[ANNEE]" />
-                    <inputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
-                      cachedDataType="i4"
-                      cachedName="ID_STRUCTURE"
-                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_OBJECTIF]"
-                      dataType="i4"
-                      name="ID_OBJECTIF" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
-                      dataType="i4"
-                      name="ID_STRUCTURE" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
-                      dataType="r8"
-                      name="OBJECTIF_DT" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
-                      dataType="r8"
-                      name="OBJECTIF_DEV" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
-                      dataType="i4"
-                      name="ANNEE" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
-                      dataType="dbTimeStamp"
-                      name="DateChargementDW" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1053,21 +902,172 @@ where [refTable].[COD_AGENCE] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="table fait objectif"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DW].[FAIT_OBJECTIF]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Connections[OleDbConnection]"
+                  connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DT]"
+                      cachedDataType="r8"
+                      cachedName="OBJECTIF_DT"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DT]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].Columns[OBJECTIF_DEV]"
+                      cachedDataType="r8"
+                      cachedName="OBJECTIF_DEV"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[OBJECTIF_DEV]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].Columns[ANNEE]"
+                      cachedDataType="i4"
+                      cachedName="ANNEE"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output].Columns[ANNEE]" />
+                    <inputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].Columns[ID_STRUCTURE]"
+                      cachedDataType="i4"
+                      cachedName="ID_STRUCTURE"
+                      externalMetadataColumnId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output].Columns[ID_STRUCTURE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[ID_OBJECTIF]"
+                      dataType="i4"
+                      name="ID_OBJECTIF" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[ID_STRUCTURE]"
+                      dataType="i4"
+                      name="ID_STRUCTURE" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DT]"
+                      dataType="r8"
+                      name="OBJECTIF_DT" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[OBJECTIF_DEV]"
+                      dataType="r8"
+                      name="OBJECTIF_DEV" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[ANNEE]"
+                      dataType="i4"
+                      name="ANNEE" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input].ExternalColumns[DateChargementDW]"
+                      dataType="dbTimeStamp"
+                      name="DateChargementDW" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
               refId="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
               endId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Inputs[Lookup Input]"
               name="Derived Column Output"
-              startId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Outputs[Derived Column Output]" />
+              startId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Outputs[Derived Column Output]" />
             <path
               refId="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
-              endId="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\LOAD_FAIT_OBJECTIF\table fait objectif.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE.Outputs[Lookup Match Output]" />
             <path
               refId="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
-              endId="Package\LOAD_FAIT_OBJECTIF\Derived Column.Inputs[Derived Column Input]"
+              endId="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\LOAD_FAIT_OBJECTIF\Merge Join.Outputs[Merge Join Output]" />
             <path
@@ -1133,7 +1133,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="198,42"
           Id="Package\LOAD_FAIT_OBJECTIF"
@@ -1147,7 +1147,7 @@ where [refTable].[COD_AGENCE] = ?</property>
           TopLeft="560,111">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,167"
               Start="0,0"
               End="0,159.5">
@@ -1171,53 +1171,53 @@ where [refTable].[COD_AGENCE] = ?</property>
     design-time-name="Package\LOAD_FAIT_OBJECTIF">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="177,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination"
-          TopLeft="511,552.666666666667" />
+          Size="158,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\table fait objectif"
+          TopLeft="725,525.666666666667" />
         <NodeLayout
           Size="133,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Merge Join"
-          TopLeft="540,224" />
+          TopLeft="754,227" />
         <NodeLayout
           Size="194,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DT"
-          TopLeft="350,32" />
+          TopLeft="560,16" />
         <NodeLayout
           Size="128,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Sort_DEV"
-          TopLeft="695,135" />
+          TopLeft="909,104" />
         <NodeLayout
           Size="120,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Sort_DT"
-          TopLeft="382,142" />
+          TopLeft="592,103" />
         <NodeLayout
-          Size="158,42"
-          Id="Package\LOAD_FAIT_OBJECTIF\Derived Column"
-          TopLeft="524,333" />
+          Size="342,42"
+          Id="Package\LOAD_FAIT_OBJECTIF\changer les unites des montant et ajout column annee"
+          TopLeft="643,336" />
         <NodeLayout
           Size="189,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Lookup_STRUCTURE"
-          TopLeft="508,439" />
+          TopLeft="722,442" />
         <NodeLayout
           Size="202,42"
           Id="Package\LOAD_FAIT_OBJECTIF\Source_OBJECTIF_DEV"
-          TopLeft="662,39" />
+          TopLeft="877,18" />
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output]"
-          TopLeft="444.5,74">
+          TopLeft="654.5,58">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,68"
+              StartConnector="{x:Null}"
+              EndConnector="0,45"
               Start="0,0"
-              End="0,60.5">
+              End="0,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1228,10 +1228,10 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[Merge Join Output]"
-          TopLeft="604.75,266">
+          TopLeft="817.25,269">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,67"
               Start="0,0"
               End="0,59.5">
@@ -1250,34 +1250,46 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[Lookup Match Output]"
-          TopLeft="601,481">
+          TopLeft="816.5,484">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71.666666666667"
+              StartConnector="{x:Null}"
+              EndConnector="-12.5,41.666666666667"
               Start="0,0"
-              End="0,64.166666666667">
+              End="-12.5,34.166666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,64.166666666667" />
+                    End="0,16.8333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.8333333333335"
+                    Point2="0,20.8333333333335"
+                    Point3="-4,20.8333333333335" />
+                  <mssgle:LineSegment
+                    End="-8.5,20.8333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.5,20.8333333333335"
+                    Point2="-12.5,20.8333333333335"
+                    Point3="-12.5,24.8333333333335" />
+                  <mssgle:LineSegment
+                    End="-12.5,34.166666666667" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,26.2786458333335,96.3827734375,11.609375"
+              BoundingBox="-54.44138671875,25.8333333333335,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[Derived Column Output]"
-          TopLeft="602.75,375">
+          TopLeft="815.25,378">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,64"
               Start="0,0"
               End="0,56.5">
@@ -1296,30 +1308,30 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output1]"
-          TopLeft="759,177">
+          TopLeft="973,146">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-131.666666666667,47"
+              StartConnector="{x:Null}"
+              EndConnector="-131.666666666667,81"
               Start="0,0"
-              End="-131.666666666667,39.5">
+              End="-131.666666666667,73.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.8647845468054" />
+                    End="0,44.0222882615156" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.8647845468054"
-                    Point2="0,27.8647845468054"
-                    Point3="-4,27.8647845468054" />
+                    Point1="0,44.0222882615156"
+                    Point2="0,48.0222882615156"
+                    Point3="-4,48.0222882615156" />
                   <mssgle:LineSegment
-                    End="-127.666666666667,27.8647845468054" />
+                    End="-127.666666666667,48.0222882615156" />
                   <mssgle:CubicBezierSegment
-                    Point1="-127.666666666667,27.8647845468054"
-                    Point2="-131.666666666667,27.8647845468054"
-                    Point3="-131.666666666667,31.8647845468054" />
+                    Point1="-127.666666666667,48.0222882615156"
+                    Point2="-131.666666666667,48.0222882615156"
+                    Point3="-131.666666666667,52.0222882615156" />
                   <mssgle:LineSegment
-                    End="-131.666666666667,39.5" />
+                    End="-131.666666666667,73.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1330,30 +1342,30 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[Sort Output]"
-          TopLeft="442,184">
+          TopLeft="652,145">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="143.666666666667,40"
+              StartConnector="{x:Null}"
+              EndConnector="147.666666666667,82"
               Start="0,0"
-              End="143.666666666667,32.5">
+              End="147.666666666667,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7147102526003" />
+                    End="0,44.6151560178306" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7147102526003"
-                    Point2="0,23.7147102526003"
-                    Point3="4,23.7147102526003" />
+                    Point1="0,44.6151560178306"
+                    Point2="0,48.6151560178306"
+                    Point3="4,48.6151560178306" />
                   <mssgle:LineSegment
-                    End="139.666666666667,23.7147102526003" />
+                    End="143.666666666667,48.6151560178306" />
                   <mssgle:CubicBezierSegment
-                    Point1="139.666666666667,23.7147102526003"
-                    Point2="143.666666666667,23.7147102526003"
-                    Point3="143.666666666667,27.7147102526003" />
+                    Point1="143.666666666667,48.6151560178306"
+                    Point2="147.666666666667,48.6151560178306"
+                    Point3="147.666666666667,52.6151560178306" />
                   <mssgle:LineSegment
-                    End="143.666666666667,32.5" />
+                    End="147.666666666667,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1364,18 +1376,18 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_FAIT_OBJECTIF.Paths[OLE DB Source Output1]"
-          TopLeft="761,81">
+          TopLeft="975.5,60">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
+              StartConnector="{x:Null}"
+              EndConnector="0,44"
               Start="0,0"
-              End="0,46.5">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.5" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1384,11 +1396,62 @@ where [refTable].[COD_AGENCE] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="ignorer les non match car il y a DR avec objectif dans le ods table (on vaut que les agence)"
+          ParentId="Package\LOAD_FAIT_OBJECTIF"
+          Size="414,60"
+          Id="c8f1ae8b-48d0-4e15-8157-14221bb30e63"
+          TopLeft="915,435">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="sort des cle de jointure obligatoire avant le merge join"
+          ParentId="Package\LOAD_FAIT_OBJECTIF"
+          Size="318,60"
+          Id="31ba1576-eba8-4386-8563-d182dddb9f56"
+          TopLeft="1040,103">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="left outer join :on prend tout les column a droit et ajout seulemnt la column obj_dev ade gauche . (on fait le trie des indice des agence apres on passe a la comparaison si les code sont egaux on ajoute la coloumn de gauche sinon on ajout null)"
+          ParentId="Package\LOAD_FAIT_OBJECTIF"
+          Size="462,65"
+          Id="4fdb1415-a011-4af9-97b3-7553a2ebba11"
+          TopLeft="887,213">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_FAIT_OBJECTIF\OLE DB Destination">
+    design-time-name="Package\LOAD_FAIT_OBJECTIF\table fait objectif">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
