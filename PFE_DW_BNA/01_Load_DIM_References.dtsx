@@ -13,8 +13,8 @@
   DTS:ObjectName="01_Load_DIM_References"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{7C77B7FA-B943-4557-820A-51AB3023CCD3}">
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{73344F0F-099A-43BC-A033-DB7307A721C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -35,11 +35,11 @@
           version="1">
           <components>
             <component
-              refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon"
+              refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup_filtre anti-doublon"
+              name="Lookup_filtre anti-doublon lors de la rechargement"
               usesDispositions="true"
               version="6">
               <properties>
@@ -91,7 +91,7 @@ where [refTable].[KEY_ACT] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]};</property>
+                  name="ParameterMap">#{Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -103,7 +103,7 @@ where [refTable].[KEY_ACT] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -111,16 +111,16 @@ where [refTable].[KEY_ACT] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input].Columns[KEY_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input].Columns[KEY_ACT]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="KEY_ACT"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]">
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -138,38 +138,38 @@ where [refTable].[KEY_ACT] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -178,11 +178,11 @@ where [refTable].[KEY_ACT] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite"
+              refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement)"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="ODS_table activite"
+              name="ODS_table activite(verifier l existance dans les placement)"
               usesDispositions="true"
               version="7">
               <properties>
@@ -202,9 +202,18 @@ where [refTable].[KEY_ACT] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT KEY_ACT, LIB_ACT_ACT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.KEY_ACT, s.LIB_ACT_ACT
+FROM ODS.ACTIVITE s
 
-FROM ODS.ACTIVITE</property>
+WHERE EXISTS (
+    
+SELECT 1
+    
+FROM ODS.PLACEMENT p
+    
+WHERE p.V_ACTIVITE = KEY_ACT
+
+)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -229,7 +238,7 @@ FROM ODS.ACTIVITE</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -237,74 +246,74 @@ FROM ODS.ACTIVITE</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].ExternalColumns[KEY_ACT]"
+                      externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].ExternalColumns[KEY_ACT]"
                       length="20"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]"
                       name="KEY_ACT"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].ExternalColumns[LIB_ACT_ACT]"
+                      externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].ExternalColumns[LIB_ACT_ACT]"
                       length="500"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]"
                       name="LIB_ACT_ACT"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].ExternalColumns[KEY_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].ExternalColumns[KEY_ACT]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="KEY_ACT" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].ExternalColumns[LIB_ACT_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].ExternalColumns[LIB_ACT_ACT]"
                       dataType="wstr"
                       length="500"
                       name="LIB_ACT_ACT" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[KEY_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[KEY_ACT]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[KEY_ACT]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[KEY_ACT]"
                       name="KEY_ACT" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[LIB_ACT_ACT]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[LIB_ACT_ACT]"
                       dataType="wstr"
                       length="500"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[LIB_ACT_ACT]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[LIB_ACT_ACT]"
                       name="LIB_ACT_ACT" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -391,14 +400,14 @@ FROM ODS.ACTIVITE</property>
                       cachedLength="20"
                       cachedName="KEY_ACT"
                       externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\table dim activite.Inputs[OLE DB Destination Input].ExternalColumns[KEY_ACT]"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]" />
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]" />
                     <inputColumn
                       refId="Package\LOAD_DIM_ACTIVITE\table dim activite.Inputs[OLE DB Destination Input].Columns[LIB_ACT_ACT]"
                       cachedDataType="wstr"
                       cachedLength="500"
                       cachedName="LIB_ACT_ACT"
                       externalMetadataColumnId="Package\LOAD_DIM_ACTIVITE\table dim activite.Inputs[OLE DB Destination Input].ExternalColumns[LIB_ACTIVITE]"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]" />
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[LIB_ACT_ACT]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -472,7 +481,7 @@ FROM ODS.ACTIVITE</property>
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="KEY_ACT"
-                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]" />
+                      lineageId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -492,7 +501,7 @@ FROM ODS.ACTIVITE</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output].Columns[KEY_ACT]})</property>
+                      name="Expression">![ISNULL](#{Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output].Columns[KEY_ACT]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -548,19 +557,19 @@ FROM ODS.ACTIVITE</property>
           <paths>
             <path
               refId="Package\LOAD_DIM_ACTIVITE.Paths[Lignes_Valides]"
-              endId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+              endId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
               name="Lignes_Valides"
               startId="Package\LOAD_DIM_ACTIVITE\verifier les id  null.Outputs[Lignes_Valides]" />
             <path
               refId="Package\LOAD_DIM_ACTIVITE.Paths[Lookup No Match Output]"
               endId="Package\LOAD_DIM_ACTIVITE\table dim activite.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]" />
+              startId="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\LOAD_DIM_ACTIVITE.Paths[OLE DB Source Output]"
               endId="Package\LOAD_DIM_ACTIVITE\verifier les id  null.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
-              startId="Package\LOAD_DIM_ACTIVITE\ODS_table activite.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement).Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -581,12 +590,13 @@ FROM ODS.ACTIVITE</property>
           version="1">
           <components>
             <component
-              refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon"
+              refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup_filtre anti-doublon"
+              name="Lookup_filtre anti-doublon lors de la rechargement"
               usesDispositions="true"
+              validateExternalMetadata="False"
               version="6">
               <properties>
                 <property
@@ -637,7 +647,7 @@ where [refTable].[COD_DEV] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]};</property>
+                  name="ParameterMap">#{Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -649,7 +659,7 @@ where [refTable].[COD_DEV] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -657,14 +667,14 @@ where [refTable].[COD_DEV] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input].Columns[COD_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input].Columns[COD_DEV_DEV]"
                       cachedDataType="i4"
                       cachedName="COD_DEV_DEV"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]">
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -682,38 +692,38 @@ where [refTable].[COD_DEV] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -722,12 +732,13 @@ where [refTable].[COD_DEV] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\LOAD_DIM_DEVISE\ODS_table devise"
+              refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null)"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="ODS_table devise"
+              name="ODS_table deviseverifier l existance dans les placement et verifier les ids null)"
               usesDispositions="true"
+              validateExternalMetadata="False"
               version="7">
               <properties>
                 <property
@@ -746,7 +757,19 @@ where [refTable].[COD_DEV] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.*
+
+FROM ODS.DEVISE s
+
+WHERE EXISTS (
+    
+SELECT 1
+    
+FROM ODS.PLACEMENT p
+    
+WHERE p.V_COD_DEV = s.COD_DEV_DEV
+
+) AND s.COD_DEV_DEV IS NOT NULL</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -763,7 +786,7 @@ where [refTable].[COD_DEV] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
@@ -771,7 +794,7 @@ where [refTable].[COD_DEV] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -779,106 +802,106 @@ where [refTable].[COD_DEV] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[COD_DEV_DEV]"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]"
+                      externalMetadataColumnId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[COD_DEV_DEV]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]"
                       name="COD_DEV_DEV"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[LIB_DEV_DEV]"
+                      externalMetadataColumnId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_DEV_DEV]"
                       length="100"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]"
                       name="LIB_DEV_DEV"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[COD_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[COD_DEV_DEV]"
                       dataType="i4"
                       name="COD_DEV_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[LIB_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_DEV_DEV]"
                       dataType="wstr"
                       length="100"
                       name="LIB_DEV_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[LIB_FRAC_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_FRAC_DEV]"
                       dataType="wstr"
                       length="100"
                       name="LIB_FRAC_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[LIB_SIGL_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_SIGL_DEV]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="LIB_SIGL_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[MONT_POFF_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[MONT_POFF_DEV]"
                       dataType="i4"
                       name="MONT_POFF_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[NBR_DEC_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[NBR_DEC_DEV]"
                       dataType="i4"
                       name="NBR_DEC_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[NBR_UNIT_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[NBR_UNIT_DEV]"
                       dataType="i4"
                       name="NBR_UNIT_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[DAT_MAJ]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[DAT_MAJ]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="DAT_MAJ" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[ORD_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[ORD_DEV_DEV]"
                       dataType="i4"
                       name="ORD_DEV_DEV" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].ExternalColumns[ETAT_ACT_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[ETAT_ACT_DEV]"
                       dataType="i4"
                       name="ETAT_ACT_DEV" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[COD_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[COD_DEV_DEV]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[COD_DEV_DEV]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[COD_DEV_DEV]"
                       name="COD_DEV_DEV" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[LIB_DEV_DEV]"
+                      refId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[LIB_DEV_DEV]"
                       dataType="wstr"
                       length="100"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Error Output].Columns[LIB_DEV_DEV]"
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[LIB_DEV_DEV]"
                       name="LIB_DEV_DEV" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -892,6 +915,7 @@ where [refTable].[COD_DEV] = ?</property>
               description="OLE DB Destination"
               name="table dim_devise"
               usesDispositions="true"
+              validateExternalMetadata="False"
               version="4">
               <properties>
                 <property
@@ -962,14 +986,14 @@ where [refTable].[COD_DEV] = ?</property>
                       cachedDataType="i4"
                       cachedName="COD_DEV_DEV"
                       externalMetadataColumnId="Package\LOAD_DIM_DEVISE\table dim_devise.Inputs[OLE DB Destination Input].ExternalColumns[COD_DEV]"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]" />
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_DEV_DEV]" />
                     <inputColumn
                       refId="Package\LOAD_DIM_DEVISE\table dim_devise.Inputs[OLE DB Destination Input].Columns[LIB_DEV_DEV]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="LIB_DEV_DEV"
                       externalMetadataColumnId="Package\LOAD_DIM_DEVISE\table dim_devise.Inputs[OLE DB Destination Input].ExternalColumns[LIB_DEVISE]"
-                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]" />
+                      lineageId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_DEV_DEV]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1028,12 +1052,12 @@ where [refTable].[COD_DEV] = ?</property>
               refId="Package\LOAD_DIM_DEVISE.Paths[Lookup No Match Output]"
               endId="Package\LOAD_DIM_DEVISE\table dim_devise.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]" />
+              startId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\LOAD_DIM_DEVISE.Paths[OLE DB Source Output]"
-              endId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+              endId="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\LOAD_DIM_DEVISE\ODS_table devise.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1054,11 +1078,11 @@ where [refTable].[COD_DEV] = ?</property>
           version="1">
           <components>
             <component
-              refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon"
+              refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup_filtre anti-doublon"
+              name="Lookup_filtre anti-doublon lors de la rechargement"
               usesDispositions="true"
               version="6">
               <properties>
@@ -1110,7 +1134,7 @@ where [refTable].[COD_PRODUIT] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]};</property>
+                  name="ParameterMap">#{Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1122,7 +1146,7 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1130,14 +1154,14 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input].Columns[COD_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input].Columns[COD_PRD_PRD]"
                       cachedDataType="i4"
                       cachedName="COD_PRD_PRD"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]">
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1155,38 +1179,38 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1195,11 +1219,11 @@ where [refTable].[COD_PRODUIT] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\LOAD_DIM_PRODUIT\ODS_table produit"
+              refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null)"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="ODS_table produit"
+              name="ODS_table produit(verifier l existance dans les placement et verifier les ids null)"
               usesDispositions="true"
               version="7">
               <properties>
@@ -1219,9 +1243,19 @@ where [refTable].[COD_PRODUIT] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT COD_PRD_PRD, LIB_PRD_PRD
-FROM ODS.PRODUIT
-WHERE COD_PRD_PRD IS NOT NULL</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.COD_PRD_PRD, s.LIB_PRD_PRD
+
+FROM ODS.PRODUIT s
+
+WHERE EXISTS (
+    
+SELECT 1
+    
+FROM ODS.PLACEMENT p
+    
+WHERE p.V_PRODUIT = s.COD_PRD_PRD
+
+) AND s.COD_PRD_PRD IS NOT NULL</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1246,7 +1280,7 @@ WHERE COD_PRD_PRD IS NOT NULL</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Connections[OleDbConnection]"
                   connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -1254,68 +1288,68 @@ WHERE COD_PRD_PRD IS NOT NULL</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output]"
+                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].ExternalColumns[COD_PRD_PRD]"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]"
+                      externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[COD_PRD_PRD]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]"
                       name="COD_PRD_PRD"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].ExternalColumns[LIB_PRD_PRD]"
+                      externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_PRD_PRD]"
                       length="500"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]"
                       name="LIB_PRD_PRD"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].ExternalColumns[COD_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[COD_PRD_PRD]"
                       dataType="i4"
                       name="COD_PRD_PRD" />
                     <externalMetadataColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].ExternalColumns[LIB_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].ExternalColumns[LIB_PRD_PRD]"
                       dataType="wstr"
                       length="500"
                       name="LIB_PRD_PRD" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output]"
+                  refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[COD_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[COD_PRD_PRD]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[COD_PRD_PRD]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[COD_PRD_PRD]"
                       name="COD_PRD_PRD" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[LIB_PRD_PRD]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[LIB_PRD_PRD]"
                       dataType="wstr"
                       length="500"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[LIB_PRD_PRD]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[LIB_PRD_PRD]"
                       name="LIB_PRD_PRD" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1400,14 +1434,14 @@ WHERE COD_PRD_PRD IS NOT NULL</property>
                       cachedDataType="i4"
                       cachedName="COD_PRD_PRD"
                       externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\table dim produit.Inputs[OLE DB Destination Input].ExternalColumns[COD_PRODUIT]"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]" />
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[COD_PRD_PRD]" />
                     <inputColumn
                       refId="Package\LOAD_DIM_PRODUIT\table dim produit.Inputs[OLE DB Destination Input].Columns[LIB_PRD_PRD]"
                       cachedDataType="wstr"
                       cachedLength="500"
                       cachedName="LIB_PRD_PRD"
                       externalMetadataColumnId="Package\LOAD_DIM_PRODUIT\table dim produit.Inputs[OLE DB Destination Input].ExternalColumns[LIB_PRODUIT]"
-                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]" />
+                      lineageId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output].Columns[LIB_PRD_PRD]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1466,12 +1500,12 @@ WHERE COD_PRD_PRD IS NOT NULL</property>
               refId="Package\LOAD_DIM_PRODUIT.Paths[Lookup No Match Output]"
               endId="Package\LOAD_DIM_PRODUIT\table dim produit.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]" />
+              startId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\LOAD_DIM_PRODUIT.Paths[OLE DB Source Output]"
-              endId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+              endId="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\LOAD_DIM_PRODUIT\ODS_table produit.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null).Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1492,11 +1526,11 @@ WHERE COD_PRD_PRD IS NOT NULL</property>
           version="1">
           <components>
             <component
-              refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon"
+              refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup_filtre anti-doublon"
+              name="Lookup_filtre anti-doublon lors de la rechargement"
               usesDispositions="true"
               version="6">
               <properties>
@@ -1560,7 +1594,7 @@ where [refTable].[COD_AGENCE] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Connections[OleDbConnection]"
+                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Connections[OleDbConnection]"
                   connectionManagerID="{6650D85E-F7F8-48CB-B6E0-664EFBE6E9E0}:external"
                   connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_DW]"
                   description="Connection manager used to access lookup data."
@@ -1568,11 +1602,11 @@ where [refTable].[COD_AGENCE] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input].Columns[COD_STRC_STRC]"
+                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input].Columns[COD_STRC_STRC]"
                       cachedDataType="i4"
                       cachedName="COD_STRC_STRC"
                       lineageId="Package\LOAD_DIM_STRUCTURE\Merge Join.Outputs[Merge Join Output].Columns[COD_STRC_STRC]">
@@ -1593,38 +1627,38 @@ where [refTable].[COD_AGENCE] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Match Output]"
+                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]"
+                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output]"
+                  refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input]">
+                  synchronousInputId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1788,278 +1822,6 @@ where [refTable].[COD_AGENCE] = ?</property>
                           name="InputColumnID">#{Package\LOAD_DIM_STRUCTURE\Merge Join.Inputs[Merge Join Right Input].Columns[LIB_STRC_STRC]}</property>
                       </properties>
                     </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="ODS_table structure"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[ODS].[STRUCTURE]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Connections[OleDbConnection]"
-                  connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_STRC]"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]"
-                      name="COD_STRC_STRC"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[LIB_STRC_STRC]"
-                      length="255"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]"
-                      name="LIB_STRC_STRC"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRM_STRC]"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]"
-                      name="COD_STRM_STRC"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[LIB_MAIL_STRC]"
-                      length="100"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]"
-                      name="LIB_MAIL_STRC"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_TSTR_TSTR]"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]"
-                      name="COD_TSTR_TSTR"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_STRC]"
-                      dataType="i4"
-                      name="COD_STRC_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[LIB_STRC_STRC]"
-                      dataType="wstr"
-                      length="255"
-                      name="LIB_STRC_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_BCT_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="COD_BCT_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRM_STRC]"
-                      dataType="i4"
-                      name="COD_STRM_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_CP_CP]"
-                      dataType="i4"
-                      name="COD_CP_CP" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[ADR_IMM_STRC]"
-                      dataType="wstr"
-                      length="500"
-                      name="ADR_IMM_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[ADR_RUE_STRC]"
-                      dataType="wstr"
-                      length="500"
-                      name="ADR_RUE_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[ADR_CIT_STRC]"
-                      dataType="wstr"
-                      length="255"
-                      name="ADR_CIT_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[NUM_TEL_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="NUM_TEL_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[NUM_FAX_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="NUM_FAX_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_TSTR_TSTR]"
-                      dataType="i4"
-                      name="COD_TSTR_TSTR" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_CAT_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="COD_CAT_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[DAT_MAJ]"
-                      codePage="1252"
-                      dataType="str"
-                      length="20"
-                      name="DAT_MAJ" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_TSTC_STRC]"
-                      dataType="i4"
-                      name="COD_TSTC_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STMC_STRC]"
-                      dataType="i4"
-                      name="COD_STMC_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_CONF_CMD]"
-                      dataType="i4"
-                      name="COD_STRC_CONF_CMD" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_LANC_CMD]"
-                      dataType="i4"
-                      name="COD_STRC_LANC_CMD" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[COD_CMD_IBS]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="COD_CMD_IBS" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[TYP_IMPR_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="TYP_IMPR_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[TYP_IMP_VERS]"
-                      dataType="i4"
-                      name="TYP_IMP_VERS" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[LIB_MAIL_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="LIB_MAIL_STRC" />
-                    <externalMetadataColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].ExternalColumns[MONT_SEUIL_STRC]"
-                      dataType="r8"
-                      name="MONT_SEUIL_STRC" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_STRC_STRC]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_STRC_STRC]"
-                      name="COD_STRC_STRC" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[LIB_STRC_STRC]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[LIB_STRC_STRC]"
-                      name="LIB_STRC_STRC" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_STRM_STRC]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_STRM_STRC]"
-                      name="COD_STRM_STRC" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[LIB_MAIL_STRC]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[LIB_MAIL_STRC]"
-                      name="LIB_MAIL_STRC" />
-                    <outputColumn
-                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_TSTR_TSTR]"
-                      dataType="i4"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Error Output].Columns[COD_TSTR_TSTR]"
-                      name="COD_TSTR_TSTR" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2292,6 +2054,284 @@ where [refTable].[COD_AGENCE] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null)"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ODS_table structure(verifier l existance dans les placement et mail null)"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[ODS].[STRUCTURE]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT s.*
+FROM ODS.STRUCTURE s
+WHERE EXISTS (
+    SELECT 1 
+    FROM ODS.PLACEMENT p
+    WHERE p.V_COD_STRC = s.COD_STRC_STRC
+) AND LIB_MAIL_STRC IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Connections[OleDbConnection]"
+                  connectionManagerID="{9726DC33-6B3F-4EB1-9761-9CBB87B16384}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[CONN_SQL_ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_STRC]"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]"
+                      name="COD_STRC_STRC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[LIB_STRC_STRC]"
+                      length="255"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]"
+                      name="LIB_STRC_STRC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRM_STRC]"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]"
+                      name="COD_STRM_STRC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[LIB_MAIL_STRC]"
+                      length="100"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]"
+                      name="LIB_MAIL_STRC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_TSTR_TSTR]"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]"
+                      name="COD_TSTR_TSTR"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_STRC]"
+                      dataType="i4"
+                      name="COD_STRC_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[LIB_STRC_STRC]"
+                      dataType="wstr"
+                      length="255"
+                      name="LIB_STRC_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_BCT_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="COD_BCT_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRM_STRC]"
+                      dataType="i4"
+                      name="COD_STRM_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_CP_CP]"
+                      dataType="i4"
+                      name="COD_CP_CP" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[ADR_IMM_STRC]"
+                      dataType="wstr"
+                      length="500"
+                      name="ADR_IMM_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[ADR_RUE_STRC]"
+                      dataType="wstr"
+                      length="500"
+                      name="ADR_RUE_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[ADR_CIT_STRC]"
+                      dataType="wstr"
+                      length="255"
+                      name="ADR_CIT_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[NUM_TEL_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NUM_TEL_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[NUM_FAX_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="NUM_FAX_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_TSTR_TSTR]"
+                      dataType="i4"
+                      name="COD_TSTR_TSTR" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_CAT_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="COD_CAT_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[DAT_MAJ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="DAT_MAJ" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_TSTC_STRC]"
+                      dataType="i4"
+                      name="COD_TSTC_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STMC_STRC]"
+                      dataType="i4"
+                      name="COD_STMC_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_CONF_CMD]"
+                      dataType="i4"
+                      name="COD_STRC_CONF_CMD" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_STRC_LANC_CMD]"
+                      dataType="i4"
+                      name="COD_STRC_LANC_CMD" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[COD_CMD_IBS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="COD_CMD_IBS" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[TYP_IMPR_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="TYP_IMPR_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[TYP_IMP_VERS]"
+                      dataType="i4"
+                      name="TYP_IMP_VERS" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[LIB_MAIL_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="LIB_MAIL_STRC" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].ExternalColumns[MONT_SEUIL_STRC]"
+                      dataType="r8"
+                      name="MONT_SEUIL_STRC" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_STRC_STRC]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_STRC_STRC]"
+                      name="COD_STRC_STRC" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[LIB_STRC_STRC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[LIB_STRC_STRC]"
+                      name="LIB_STRC_STRC" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_STRM_STRC]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_STRM_STRC]"
+                      name="COD_STRM_STRC" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[LIB_MAIL_STRC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[LIB_MAIL_STRC]"
+                      name="LIB_MAIL_STRC" />
+                    <outputColumn
+                      refId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_TSTR_TSTR]"
+                      dataType="i4"
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Error Output].Columns[COD_TSTR_TSTR]"
+                      name="COD_TSTR_TSTR" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\LOAD_DIM_STRUCTURE\prend seulement les agences(1)"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -2308,7 +2348,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       refId="Package\LOAD_DIM_STRUCTURE\prend seulement les agences(1).Inputs[Conditional Split Input].Columns[COD_TSTR_TSTR]"
                       cachedDataType="i4"
                       cachedName="COD_TSTR_TSTR"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]" />
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2328,7 +2368,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]}) &amp;&amp; #{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]} == 1</property>
+                      name="Expression">![ISNULL](#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]}) &amp;&amp; #{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]} == 1</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -2407,7 +2447,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       refId="Package\LOAD_DIM_STRUCTURE\Sort.Inputs[Sort Input].Columns[COD_STRC_STRC]"
                       cachedDataType="i4"
                       cachedName="COD_STRC_STRC"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]">
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2424,7 +2464,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="LIB_STRC_STRC"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]">
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2440,7 +2480,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       refId="Package\LOAD_DIM_STRUCTURE\Sort.Inputs[Sort Input].Columns[COD_STRM_STRC]"
                       cachedDataType="i4"
                       cachedName="COD_STRM_STRC"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]">
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2458,7 +2498,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="LIB_MAIL_STRC"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]">
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2474,7 +2514,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                       refId="Package\LOAD_DIM_STRUCTURE\Sort.Inputs[Sort Input].Columns[COD_TSTR_TSTR]"
                       cachedDataType="i4"
                       cachedName="COD_TSTR_TSTR"
-                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]">
+                      lineageId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2506,7 +2546,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]}</property>
+                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRC_STRC]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2520,7 +2560,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]}</property>
+                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_STRC_STRC]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2534,7 +2574,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]}</property>
+                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_STRM_STRC]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2549,7 +2589,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]}</property>
+                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[LIB_MAIL_STRC]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -2562,7 +2602,7 @@ where [refTable].[COD_AGENCE] = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]}</property>
+                          name="SortColumnId">#{Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output].Columns[COD_TSTR_TSTR]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2854,17 +2894,17 @@ where [refTable].[COD_AGENCE] = ?</property>
               refId="Package\LOAD_DIM_STRUCTURE.Paths[Lookup No Match Output]"
               endId="Package\LOAD_DIM_STRUCTURE\table dim structure.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Outputs[Lookup No Match Output]" />
+              startId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\LOAD_DIM_STRUCTURE.Paths[Merge Join Output]"
-              endId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon.Inputs[Lookup Input]"
+              endId="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement.Inputs[Lookup Input]"
               name="Merge Join Output"
               startId="Package\LOAD_DIM_STRUCTURE\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\LOAD_DIM_STRUCTURE.Paths[OLE DB Source Output]"
               endId="Package\LOAD_DIM_STRUCTURE\prend seulement les agences(1).Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
-              startId="Package\LOAD_DIM_STRUCTURE\ODS_table structure.Outputs[OLE DB Source Output]" />
+              startId="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null).Outputs[OLE DB Source Output]" />
             <path
               refId="Package\LOAD_DIM_STRUCTURE.Paths[OLE DB Source Output1]"
               endId="Package\LOAD_DIM_STRUCTURE\Sort 1.Inputs[Sort Input]"
@@ -2930,7 +2970,7 @@ where [refTable].[COD_AGENCE] = ?</property>
         <NodeLayout
           Size="182,42"
           Id="Package\LOAD_DIM_DEVISE"
-          TopLeft="451,63" />
+          TopLeft="445,85" />
         <NodeLayout
           Size="191,42"
           Id="Package\LOAD_DIM_PRODUIT"
@@ -2941,18 +2981,18 @@ where [refTable].[COD_AGENCE] = ?</property>
           TopLeft="437,375" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="542.75,105">
+          TopLeft="539.75,127">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,68"
+              EndConnector="0,46"
               Start="0,0"
-              End="0,60.5">
+              End="0,38.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.5" />
+                    End="0,38.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3014,24 +3054,24 @@ where [refTable].[COD_AGENCE] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="170,42"
-          Id="Package\LOAD_DIM_ACTIVITE\ODS_table activite"
+          Size="363,42"
+          Id="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement)"
           TopLeft="481,29" />
         <NodeLayout
           Size="164,42"
           Id="Package\LOAD_DIM_ACTIVITE\verifier les id  null"
-          TopLeft="480,141" />
+          TopLeft="573,140" />
+        <NodeLayout
+          Size="324,42"
+          Id="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement"
+          TopLeft="496,273" />
         <NodeLayout
           Size="161,42"
           Id="Package\LOAD_DIM_ACTIVITE\table dim activite"
-          TopLeft="472,411" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon"
-          TopLeft="452,272" />
+          TopLeft="582,412" />
         <EdgeLayout
           Id="Package\LOAD_DIM_ACTIVITE.Paths[Lookup No Match Output]"
-          TopLeft="553.75,314">
+          TopLeft="660.25,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -3055,42 +3095,42 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_ACTIVITE.Paths[Lignes_Valides]"
-          TopLeft="558.5,183">
+          TopLeft="656.5,182">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,89"
+              EndConnector="0,91"
               Start="0,0"
-              End="0,81.5">
+              End="0,83.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,81.5" />
+                    End="0,83.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-32.842578125,34.91845703125,65.68515625,11.6630859375"
+              BoundingBox="-32.842578125,35.91845703125,65.68515625,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_ACTIVITE.Paths[OLE DB Source Output]"
-          TopLeft="564,71">
+          TopLeft="658.75,71">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,70"
+              EndConnector="0,69"
               Start="0,0"
-              End="0,62.5">
+              End="0,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,62.5" />
+                    End="0,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3103,7 +3143,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_ACTIVITE\ODS_table activite">
+    design-time-name="Package\LOAD_DIM_ACTIVITE\ODS_table activite(verifier l existance dans les placement)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3111,20 +3151,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_ACTIVITE\table dim activite">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon">
+    design-time-name="Package\LOAD_DIM_ACTIVITE\Lookup_filtre anti-doublon lors de la rechargement">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -3146,6 +3173,19 @@ where [refTable].[COD_AGENCE] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_DIM_ACTIVITE\table dim activite">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\LOAD_DIM_DEVISE">
     <LayoutInfo>
@@ -3154,29 +3194,29 @@ where [refTable].[COD_AGENCE] = ?</property>
         <NodeLayout
           Size="162,42"
           Id="Package\LOAD_DIM_DEVISE\table dim_devise"
-          TopLeft="461,319" />
+          TopLeft="610,315" />
         <NodeLayout
-          Size="206,42"
-          Id="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon"
-          TopLeft="442,185" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\LOAD_DIM_DEVISE\ODS_table devise"
+          Size="459,42"
+          Id="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null)"
           TopLeft="466,70" />
+        <NodeLayout
+          Size="324,42"
+          Id="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement"
+          TopLeft="526,192" />
         <EdgeLayout
           Id="Package\LOAD_DIM_DEVISE.Paths[OLE DB Source Output]"
-          TopLeft="547.5,112">
+          TopLeft="691.75,112">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,73"
+              EndConnector="0,80"
               Start="0,0"
-              End="0,65.5">
+              End="0,72.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,65.5" />
+                    End="0,72.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3187,25 +3227,25 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_DEVISE.Paths[Lookup No Match Output]"
-          TopLeft="543.5,227">
+          TopLeft="689.5,234">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,92"
+              EndConnector="0,81"
               Start="0,0"
-              End="0,84.5">
+              End="0,73.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,84.5" />
+                    End="0,73.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,36.4453125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,30.9453125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3226,30 +3266,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[DW].[DIM_DEVISE]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_DEVISE\ODS_table devise">
+    design-time-name="Package\LOAD_DIM_DEVISE\ODS_table deviseverifier l existance dans les placement et verifier les ids null)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3261,26 +3278,49 @@ where [refTable].[COD_AGENCE] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_DIM_DEVISE\Lookup_filtre anti-doublon lors de la rechargement">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DW].[DIM_DEVISE]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\LOAD_DIM_PRODUIT">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="465,42"
+          Id="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null)"
+          TopLeft="472,60" />
+        <NodeLayout
+          Size="324,42"
+          Id="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement"
+          TopLeft="535,188" />
+        <NodeLayout
           Size="160,42"
           Id="Package\LOAD_DIM_PRODUIT\table dim produit"
-          TopLeft="483,323" />
-        <NodeLayout
-          Size="206,42"
-          Id="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon"
-          TopLeft="460,188" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\LOAD_DIM_PRODUIT\ODS_table produit"
-          TopLeft="472,60" />
+          TopLeft="613,345" />
         <EdgeLayout
           Id="Package\LOAD_DIM_PRODUIT.Paths[OLE DB Source Output]"
-          TopLeft="559.75,102">
+          TopLeft="700.75,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
@@ -3302,25 +3342,25 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_PRODUIT.Paths[Lookup No Match Output]"
-          TopLeft="563,230">
+          TopLeft="695,230">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,93"
+              EndConnector="0,115"
               Start="0,0"
-              End="0,85.5">
+              End="0,107.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,85.5" />
+                    End="0,107.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,36.9453125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,47.9453125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3328,25 +3368,20 @@ where [refTable].[COD_AGENCE] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_PRODUIT\table dim produit">
+    design-time-name="Package\LOAD_DIM_PRODUIT\ODS_table produit(verifier l existance dans les placement et verifier les ids null)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon">
+    design-time-name="Package\LOAD_DIM_PRODUIT\Lookup_filtre anti-doublon lors de la rechargement">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3364,10 +3399,15 @@ where [refTable].[COD_AGENCE] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_PRODUIT\ODS_table produit">
+    design-time-name="Package\LOAD_DIM_PRODUIT\table dim produit">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -3377,33 +3417,33 @@ where [refTable].[COD_AGENCE] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
         <NodeLayout
-          Size="206,42"
-          Id="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon"
-          TopLeft="945,371" />
-        <NodeLayout
-          Size="108,42"
-          Id="Package\LOAD_DIM_STRUCTURE\Sort 1"
-          TopLeft="1178,228" />
-        <NodeLayout
-          Size="169,42"
-          Id="Package\LOAD_DIM_STRUCTURE\table dim structure"
-          TopLeft="964,448" />
+          Size="427,42"
+          Id="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null)"
+          TopLeft="672,17" />
         <NodeLayout
           Size="99,42"
           Id="Package\LOAD_DIM_STRUCTURE\Sort"
           TopLeft="838,230" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\LOAD_DIM_STRUCTURE\ODS_table structure"
-          TopLeft="800,14" />
-        <NodeLayout
           Size="177,42"
           Id="Package\LOAD_DIM_STRUCTURE\ODs_table structure"
           TopLeft="1148,15" />
         <NodeLayout
+          Size="108,42"
+          Id="Package\LOAD_DIM_STRUCTURE\Sort 1"
+          TopLeft="1178,228" />
+        <NodeLayout
           Size="133,42"
           Id="Package\LOAD_DIM_STRUCTURE\Merge Join"
           TopLeft="987,292" />
+        <NodeLayout
+          Size="169,42"
+          Id="Package\LOAD_DIM_STRUCTURE\table dim structure"
+          TopLeft="964,448" />
+        <NodeLayout
+          Size="324,42"
+          Id="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement"
+          TopLeft="885,372" />
         <NodeLayout
           Size="236,42"
           Id="Package\LOAD_DIM_STRUCTURE\prend seulement les agences(1)"
@@ -3500,18 +3540,18 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_STRUCTURE.Paths[OLE DB Source Output]"
-          TopLeft="890.25,56">
+          TopLeft="888.25,59">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,71"
+              EndConnector="0,68"
               Start="0,0"
-              End="0,63.5">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.5" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3522,18 +3562,18 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_STRUCTURE.Paths[Merge Join Output]"
-          TopLeft="1050.75,334">
+          TopLeft="1050.25,334">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,37"
+              EndConnector="0,38"
               Start="0,0"
-              End="0,29.5">
+              End="0,30.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5" />
+                    End="0,30.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3544,25 +3584,25 @@ where [refTable].[COD_AGENCE] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\LOAD_DIM_STRUCTURE.Paths[Lookup No Match Output]"
-          TopLeft="1048.25,413">
+          TopLeft="1047.75,414">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{x:Null}"
-              EndConnector="0,35"
+              EndConnector="0,34"
               Start="0,0"
-              End="0,27.5">
+              End="0,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,7.9453125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,7.4453125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3593,9 +3633,9 @@ where [refTable].[COD_AGENCE] = ?</property>
         <AnnotationLayout
           Text="Le Merge Join exige que les deux flux soient triés sur la clé de jointure"
           ParentId="Package\LOAD_DIM_STRUCTURE"
-          Size="305,60"
+          Size="427,38"
           Id="d87612eb-2f0e-4492-8a2b-9708a3de6c07"
-          TopLeft="1292,215">
+          TopLeft="1295,219">
           <AnnotationLayout.FontInfo>
             <mssge:FontInfo
               Family="Tahoma"
@@ -3611,7 +3651,7 @@ where [refTable].[COD_AGENCE] = ?</property>
         <AnnotationLayout
           Text=" récupère le libellé de la structure mère  pour chaque agence"
           ParentId="Package\LOAD_DIM_STRUCTURE"
-          Size="258,60"
+          Size="258,51"
           Id="a3444d4d-f64a-45b1-9a59-9ab38596ba19"
           TopLeft="718,288">
           <AnnotationLayout.FontInfo>
@@ -3664,43 +3704,7 @@ where [refTable].[COD_AGENCE] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[DW].[DIM_STRUCTURE]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_STRUCTURE\table dim structure">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\LOAD_DIM_STRUCTURE\ODS_table structure">
+    design-time-name="Package\LOAD_DIM_STRUCTURE\ODS_table structure(verifier l existance dans les placement et mail null)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -3722,6 +3726,42 @@ where [refTable].[COD_AGENCE] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_DIM_STRUCTURE\table dim structure">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD_DIM_STRUCTURE\Lookup_filtre anti-doublon lors de la rechargement">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[DW].[DIM_STRUCTURE]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
