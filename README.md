@@ -108,19 +108,31 @@ flowchart TD
 
 ### Vue d'ensemble du projet SSIS
 
-![Vue d'ensemble SSIS](./screenshots/ssis-overview.png)
+<p align="center">
+  <img
+    src="WhatsApp Image 2026-10-13 at 12.34.27 AM.jpeg"
+    alt="BNA Platform logo"
+  >
+</p>
+
 
 ### Flux de données
 
-![Flux de données SSIS](./screenshots/ssis-data-flow.png)
+<p align="center">
+  <img
+    src="WhatsApp Image 2026-10-13 at 12.34.27 AM (2).jpeg"
+    alt="BNA Platform logo"
+  >
+</p>
 
-### Modèle du Data Warehouse
+<p align="center">
+  <img
+    src="WhatsApp Image 2026-10-13 at 12.34.27 AM (3).jpeg"
+    alt="BNA Platform logo"
+  >
+</p>
 
-![Modèle du Data Warehouse](./screenshots/data-warehouse-model.png)
 
-### Résultat d'exécution
-
-![Résultat d'exécution](./screenshots/ssis-execution-result.png)
 
 
 
@@ -147,5 +159,5 @@ informations sensibles.
 
 ## Références
 
-- [README général du projet](../README.md)
+- [README général du projet](https://github.com/Achref-004/BNA-Platform/blob/main/README.md)
 
